@@ -12,15 +12,23 @@ namespace AirAtlantique
 
             public AirAtlantiqueContext() : base("AirAtlantique")
             {
+                Database.SetInitializer<AirAtlantiqueContext>(new CreateDatabaseIfNotExists<AirAtlantiqueContext>());
 
             }
-            public virtual DbSet<Demande> demandes  { get; set; }
-            public virtual DbSet<Employe> employes  { get; set; }
-            public virtual DbSet<Formateur> formateurs  { get; set; }
-            public virtual DbSet<FormateurExterne> formateursExternes  { get; set; }
-            public virtual DbSet<Formation> formations  { get; set; }
-            public virtual DbSet<Metier> metiers  { get; set; }
-            public virtual DbSet<Session> sessions  { get; set; }
-        
+            public DbSet<Demande> demandes  { get; set; }
+
+            public DbSet<Employe> employes  { get; set; }      
+
+            public DbSet<Formateur> formateurs  { get; set; }       
+
+            public DbSet<FormateurExterne> formateursExternes  { get; set; }            
+
+            public DbSet<Formation> formations  { get; set; }                   
+
+            public DbSet<Metier> metiers  { get; set; }    
+
+            public DbSet<Session> sessions  { get; set; }
+                                                                    
+
     }
 }

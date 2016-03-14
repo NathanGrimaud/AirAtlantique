@@ -18,9 +18,9 @@ namespace AirAtlantique.Pages
     /// <summary>
     /// Logique d'interaction pour Home.xaml
     /// </summary>
-    public class Home : Template
+    public partial class Home 
     {
-        public Home()
+        public Home() : base()
         {
             InitializeComponent();
         }

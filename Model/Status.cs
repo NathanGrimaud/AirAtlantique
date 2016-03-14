@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirAtlantique.Model
 {
-    enum Status
+    public enum Status
     {
         aVenir, fini
     }

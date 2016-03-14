@@ -7,8 +7,9 @@ using System.Windows.Controls;
 
 namespace AirAtlantique.Pages
 {
-    public class Template: UserControl
+    public class Template: ContentControl
     {
+        public MessageArgs arguments { get; set; }
         public Template():base()
         {
 

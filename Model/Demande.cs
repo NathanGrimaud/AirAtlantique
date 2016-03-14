@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AirAtlantique.Model
 {
-    class Demande
+    public class Demande
     {
         [Key]
         public int id { get; set; }

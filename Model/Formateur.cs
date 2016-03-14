@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AirAtlantique.Model
 {
-    class Formateur
+    public class Formateur
     {
         [Key]
         public int id { get; set; }

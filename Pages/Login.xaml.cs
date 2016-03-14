@@ -12,21 +12,39 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AirAtlantique.Model;
 
 namespace AirAtlantique.Pages
 {
 
-    public class Login : Template
+    public partial class Login 
     {
-        public Login() 
+        public Login() : base()
         {
             InitializeComponent();
             changePage.Click += ChangePage_Click;
+            using (var db = new AirAtlantiqueContext())
+            {
+                var admin = new Employe()
+                {
+                    email = "admin@aa.com",
+                    login = "admin",
+                    nom = "admin",
+                    prenom = "admin"
+                };
+                db.employes.Add(admin);
+                //db.SaveChanges();
+                this.testFrero.Text = "in db";
+            }
         }
 
         private void ChangePage_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.NavigateWithParams(new Home());
+            var switcher = new Switcher(new Template());
+            var args = new MessageArgs();
+            args.Add("login", this.Username);
+            args.Add("password", this.Password);
+            switcher.NavigateWithParams(new Home(),args);
         }
     }
 }

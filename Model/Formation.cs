@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AirAtlantique.Model
 {
-    class Formation
+    public class Formation
     {
         [Key]
         public int id { get; set; }
