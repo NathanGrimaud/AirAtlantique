@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestCBN
+namespace AirAtlantique.Model
 {
-    class Status
+    enum Status
     {
-        public int Id { get; set; }
-        public List<string> status { get; set; }
+        aVenir, fini
     }
 }

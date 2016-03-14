@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AirAtlantique.Model
+{
+    class Formation
+    {
+        [Key]
+        public int id { get; set; }
+
+        [StringLength(40)]
+        public string nom { get; set; }
+
+        public int duree { get; set; }
+
+        public int dureeValide { get; set; }
+
+        public bool estGlobale { get; set; }
+
+        public bool estActive { get; set; }
+
+        public ICollection<Session> sessions { get; set; }
+
+        public ICollection<Metier> metiers { get; set; }
+
+
+    }
+}

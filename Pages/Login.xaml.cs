@@ -12,21 +12,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using AirAtlantique.Pages;
 
-namespace AirAtlantique
+namespace AirAtlantique.Pages
 {
-    /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+
+    public class Login : Template
     {
-        public MainWindow()
+        public Login() 
         {
             InitializeComponent();
-            Switcher.init(ContentArea);
-            ContentArea.Content = new Login();
+            changePage.Click += ChangePage_Click;
+        }
 
+        private void ChangePage_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.NavigateWithParams(new Home());
         }
     }
 }
