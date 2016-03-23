@@ -41,9 +41,9 @@ namespace AirAtlantique.Pages
         private void ChangePage_Click(object sender, RoutedEventArgs e)
         {          
             var args = new Dictionary<String, Object>();
+
             args.Add("nom",this.admin.nom );
             args.Add("prenom",this.admin.prenom );
-            this.testFrero.Text = "avant navigation";
 
             Switcher.Navigate(new Home(args) );
 

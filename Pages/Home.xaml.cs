@@ -1,17 +1,6 @@
-﻿using System;
+﻿using AirAtlantique.Pages.Component;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace AirAtlantique.Pages
 {
@@ -23,9 +12,10 @@ namespace AirAtlantique.Pages
         public Home(Dictionary<String, Object> parameters) : base()
         {
             InitializeComponent();
+            Switcher.changeMenu(new SideMenu());
             foreach (var item in parameters)
             {
-                @params.Text += $"key : {item.Key}  value :  {item.Value}";
+                @params.Text += $"key : {item.Key}  value :  {item.Value} ";
             }
         }
     }

@@ -1,41 +1,55 @@
-﻿<Window x:Class="AirAtlantique.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AirAtlantique"
         xmlns:pages="clr-namespace:AirAtlantique.Pages"
+        xmlns:component="clr-namespace:AirAtlantique.Pages.Component"
+        xmlns:Converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf" x:Class="AirAtlantique.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow"
         WindowStartupLocation="CenterScreen" 
         WindowState="Maximized"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Background="{DynamicResource MaterialDesignPaper}"
+        Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         >
     <Window.DataContext>
-        <pages:Login />
+        <component:SideMenu />
     </Window.DataContext>
     <Grid>
-        <Grid Name="PageWrapper" Height="504" VerticalAlignment="Top">
+        <Grid x:Name="PageWrapper">
+            <Grid.DataContext>
+                <component:SideMenu/>
+            </Grid.DataContext>
             <Grid.RowDefinitions>
-                <RowDefinition Height="10*"></RowDefinition>
-                <RowDefinition Height="85*"></RowDefinition>
-                <RowDefinition Height="5*"></RowDefinition>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="85*"/>
+                <RowDefinition Height="5*"/>
             </Grid.RowDefinitions>
-            <Grid Name="MenuBar" Grid.Row="0" Background="#263238" Height="49" Margin="0,-1,0,3">
+            <Grid x:Name="MenuBar" Grid.Row="0" Background="#FF1565C0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="20*"></ColumnDefinition>
-                    <ColumnDefinition Width="20*"></ColumnDefinition>
-                    <ColumnDefinition Width="20*"></ColumnDefinition>
-                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="20*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Name="app_name" Text="Aire atlantique : " Grid.Column="1" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" Height="22" Margin="0,10,0,17" FontSize="18.667"/>
-                <TextBlock Name="page_name" Text="Login" Grid.Column="2" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="22" Margin="0,10,0,17" FontSize="18.667"/>
+                <TextBlock x:Name="app_name" Text="Aire atlantique : " Grid.Column="1" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" Height="22" Margin="0,10,0,17" FontSize="18.667"/>
+                <TextBlock x:Name="page_name" Text="Login" Grid.Column="2" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="22" Margin="0,10,0,17" FontSize="18.667"/>
             </Grid>
-            <Grid Name="page_content" Grid.Row="1" Background="#f5f5f5">
-                <ContentControl x:Name="ContentArea" />
+            <Grid x:Name="page_content" Grid.Row="1" Background="#f5f5f5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="85*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--<ContentControl Content="{component:SideMenu}" Grid.Column="0" x:Name="SideMenu" />-->
+                <ContentControl  Grid.Column="0" x:Name="SideMenu" />
+                <ContentControl Grid.Column="1" x:Name="ContentArea" />
             </Grid>
+            <Rectangle Grid.Row="2" Fill="#FF546987"></Rectangle>
+            
         </Grid>
     </Grid>
 </Window>
