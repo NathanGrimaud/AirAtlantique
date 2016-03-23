@@ -8,35 +8,17 @@ using System.Windows.Controls;
 
 namespace AirAtlantique
 {
-    public partial class UserControl
-    {
-        Dictionary<String, Object> parameters {get;set;}
-        public void receiveParams(Dictionary<String, Object> p)
-        {
-            this.parameters = p;
-        }
-    }
-
-    public class Switcher
-    {
-        Template templater;
-        public Switcher(Template templateWrapper)
-        {
-            this.templater = templateWrapper;
-
-        }
-
-        public void Navigate<T>(T destination)
-        {
-            if (templater != null)
-                templater.Content = destination;
-        }
-
-
-       public void NavigateWithParams<T>(T destination,MessageArgs param ){
-            if (templater != null)
-                templater.arguments = param;
-            Navigate(destination);            
-       }
-    }
+    public static class Switcher
+     {
+         static ContentControl templater;
+         public static void init(ContentControl templateWrapper)
+         {
+             templater = templateWrapper;
+         }
+        public static void Navigate(UserControl destination)
+         {
+             if (templater != null)
+                 templater.Content = destination;
+         }
+     }
 }

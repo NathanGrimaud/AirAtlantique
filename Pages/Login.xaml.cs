@@ -19,6 +19,7 @@ namespace AirAtlantique.Pages
 
     public partial class Login 
     {
+        private Employe admin { get; set; }
         public Login() : base()
         {
             InitializeComponent();
@@ -33,18 +34,19 @@ namespace AirAtlantique.Pages
                     prenom = "admin"
                 };
                 db.employes.Add(admin);
-                //db.SaveChanges();
-                this.testFrero.Text = "in db";
+                this.admin = admin;      
             }
         }
 
         private void ChangePage_Click(object sender, RoutedEventArgs e)
-        {
-            var switcher = new Switcher(new Template());
-            var args = new MessageArgs();
-            args.Add("login", this.Username);
-            args.Add("password", this.Password);
-            switcher.NavigateWithParams(new Home(),args);
+        {          
+            var args = new Dictionary<String, Object>();
+            args.Add("nom",this.admin.nom );
+            args.Add("prenom",this.admin.prenom );
+            this.testFrero.Text = "avant navigation";
+
+            Switcher.Navigate(new Home(args) );
+
         }
     }
 }

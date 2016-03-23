@@ -24,7 +24,7 @@ namespace AirAtlantique
         public MainWindow()
         {
             InitializeComponent();
-            var switcher = new Switcher(ContentArea as Template);
+            Switcher.init(this);
             ContentArea.Content = new Login();
 
         }

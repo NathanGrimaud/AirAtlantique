@@ -20,16 +20,13 @@ namespace AirAtlantique.Pages
     /// </summary>
     public partial class Home 
     {
-        public Home() : base()
+        public Home(Dictionary<String, Object> parameters) : base()
         {
             InitializeComponent();
+            foreach (var item in parameters)
+            {
+                @params.Text += $"key : {item.Key}  value :  {item.Value}";
+            }
         }
-        public void receiveParams(MessageArgs param)
-        {
-            var login = param["login"];
-            var password = param["password"];
-            @params.Text = "identifiants :" + login + " : " + password;
-        }
-
     }
 }

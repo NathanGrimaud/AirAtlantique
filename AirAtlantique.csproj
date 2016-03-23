@@ -73,7 +73,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AirAtlantiqueContext.cs" />
-    <Compile Include="MessageArgs.cs" />
     <Compile Include="Model\Demande.cs" />
     <Compile Include="Model\Employe.cs" />
     <Compile Include="Model\Formateur.cs" />
@@ -88,7 +87,6 @@
     <Compile Include="Pages\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Template.cs" />
     <Compile Include="Switcher.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
