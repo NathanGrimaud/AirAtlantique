@@ -28,23 +28,15 @@ namespace AirAtlantique.Pages.Component
             iconsArray = new List<Rectangle>() {
                 this.allIcon,this.menuIcon,this.rhIcon,this.cIcon
             };
-            this.lol();
-        }
-        private void lol()
-        {
-            foreach (var item in this.iconsArray)
-            {
-               
-                    item.Fill = new SolidColorBrush(Color.FromRgb(33, 33, 33));
-            }
+  
         }
         private void Rectangle_MouseEnter(object sender, MouseEventArgs e)
         {
-            this.menuIcon.Fill = new SolidColorBrush(Color.FromRgb(66, 66, 66));
+         
             foreach (var item in this.iconsArray)
             {
-                if (item.IsMouseOver)
-                    item.Fill = new SolidColorBrush(Color.FromRgb(66, 66, 66));
+                if (item.IsMouseOver)                   
+                     item.Fill.Opacity = 0.2;
             }
             
         }
@@ -53,10 +45,17 @@ namespace AirAtlantique.Pages.Component
         {
             foreach (var item in this.iconsArray)
             {
-                if (!item.IsMouseOver)
-                    item.Fill = new SolidColorBrush(Color.FromRgb(33, 33, 33));
+                if (!item.IsMouseOver)                
+                 item.Fill.Opacity = 1;
             }
         }
 
+        private void menuIcon_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (this.slideMenu.Visibility == System.Windows.Visibility.Visible)
+                this.slideMenu.Visibility = System.Windows.Visibility.Collapsed;
+            else
+                this.slideMenu.Visibility = System.Windows.Visibility.Visible;
+        }
     }
 }

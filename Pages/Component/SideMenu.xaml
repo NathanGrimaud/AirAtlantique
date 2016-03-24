@@ -6,16 +6,7 @@
              xmlns:local="clr-namespace:AirAtlantique.Pages.Component"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <UserControl.Resources>
-        <Storyboard x:Key="OnMouseEnter1"/>
-        <Storyboard x:Key="iconMousseOver"/>
-    </UserControl.Resources>
-    <UserControl.Triggers>
-        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="MenuIcon">
-            <BeginStoryboard x:Name="iconMousseOver_BeginStoryboard" Storyboard="{StaticResource iconMousseOver}"/>
-        </EventTrigger>
-    </UserControl.Triggers>
-    <Grid>
+    <Grid ClipToBounds="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30*"></ColumnDefinition>
             <ColumnDefinition  Width="70*"></ColumnDefinition>
@@ -30,30 +21,56 @@
                 <RowDefinition Height="15*"></RowDefinition>
                 <RowDefinition Height="50*"></RowDefinition>
             </Grid.RowDefinitions>
-            
+
             <Grid  Grid.Row="0" >
-                <Rectangle  Name="menuIcon" MouseEnter="Rectangle_MouseEnter" MouseLeave="Rectangle_MouseLeave" HorizontalAlignment="Right" Width="90"></Rectangle>
-                <Image Cursor="Hand" x:Name="MenuIcon" Source="../../Images/menu.png" Margin="39,0,0,0" RenderTransformOrigin="-0.059,0.561">
-                   
-                </Image>
-            </Grid>
-            
-            <Grid  Grid.Row="1" >
-                <Rectangle  Name="cIcon" MouseEnter="Rectangle_MouseEnter" MouseLeave="Rectangle_MouseLeave"></Rectangle>
-                <Image Cursor="Hand"  x:Name="AccountIcon" Source="../../Images/Compte.png" Margin="0"/>
-            </Grid>
-            <Grid  Grid.Row="2"  >
-                <Rectangle  Name="rhIcon" MouseEnter="Rectangle_MouseEnter" MouseLeave="Rectangle_MouseLeave"></Rectangle>
-                <Image Cursor="Hand"  x:Name="RHIcon" Source="../../Images/Rh.png" Margin="0"/>
-            </Grid>
-            <Grid Grid.Row="3"  >
-                <Rectangle  Name="allIcon" MouseEnter="Rectangle_MouseEnter" MouseLeave="Rectangle_MouseLeave"></Rectangle>
-                <Image Cursor="Hand"   x:Name="StandardIcon" Source="../../Images/All.png" Margin="0"/>
-            </Grid>
-            <Grid Grid.Row="4"  >
-                             
+                <Rectangle  Name="menuIcon" MouseLeftButtonDown="menuIcon_MouseLeftButtonDown" MouseEnter="Rectangle_MouseEnter" MouseLeave="Rectangle_MouseLeave">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="../../Images/menu.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle>
+
+                </Rectangle>
             </Grid>
 
+            <Grid  Grid.Row="1" >
+                <Rectangle  Name="cIcon" MouseEnter="Rectangle_MouseEnter" MouseLeave="Rectangle_MouseLeave">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="../../Images/Compte.png" Stretch="Uniform"></ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Grid>
+            <Grid  Grid.Row="2"  >
+                <Rectangle  Name="rhIcon" MouseEnter="Rectangle_MouseEnter" MouseLeave="Rectangle_MouseLeave">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="../../Images/Rh.png" Stretch="Uniform"></ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Grid>
+            <Grid Grid.Row="3"  >
+                <Rectangle  Name="allIcon" MouseEnter="Rectangle_MouseEnter" MouseLeave="Rectangle_MouseLeave">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="../../Images/All.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Grid>
+            <Grid Grid.Row="4"  >
+
+            </Grid>
+
+        </Grid>
+        <Grid Name="slideMenu" Background="#FF212121" Grid.Column="1" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15*"></RowDefinition>
+                <RowDefinition Height="15*"></RowDefinition>
+                <RowDefinition Height="15*"></RowDefinition>
+                <RowDefinition Height="15*"></RowDefinition>
+                <RowDefinition Height="50*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="WhiteSmoke">Menu</TextBlock>
+            <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="WhiteSmoke">Mon Compte</TextBlock>
+            <TextBlock Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="WhiteSmoke">Ressource Humaines</TextBlock>
+            <TextBlock Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="WhiteSmoke">Général</TextBlock>
         </Grid>
     </Grid>
 </UserControl>

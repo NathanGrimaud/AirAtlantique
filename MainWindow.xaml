@@ -15,14 +15,9 @@
         Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         >
-    <Window.DataContext>
-        <component:SideMenu />
-    </Window.DataContext>
     <Grid>
         <Grid x:Name="PageWrapper">
-            <Grid.DataContext>
-                <component:SideMenu/>
-            </Grid.DataContext>
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="10*"/>
                 <RowDefinition Height="85*"/>

@@ -43,11 +43,15 @@ namespace AirAtlantique
          {
              if (templater != null)
                  templater.Content = destination;
+            else
+                throw new Exception("you need to give the switcher all the ContentControl that will be filled");
          }
         public static void changeMenu(UserControl menuWrapper)
         {
             if (menu != null)
-                menu.Content = menuWrapper;
+                menu.Content = menuWrapper;             
+            else
+                throw new Exception("you need to give the switcher all the ContentControl that will be filled");
         }
     }
 }
