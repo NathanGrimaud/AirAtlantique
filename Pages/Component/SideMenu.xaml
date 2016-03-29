@@ -55,11 +55,9 @@
                 </Rectangle>
             </Grid>
             <Grid Grid.Row="4"  >
-
             </Grid>
-
         </Grid>
-        <Grid Name="slideMenu" Background="#FF212121" Grid.Column="1" Visibility="Collapsed">
+        <Grid Name="slideMenu" Background="#FF212121" Grid.Column="1" Visibility="Visible">
             <Grid.RowDefinitions>
                 <RowDefinition Height="15*"></RowDefinition>
                 <RowDefinition Height="15*"></RowDefinition>
@@ -67,10 +65,10 @@
                 <RowDefinition Height="15*"></RowDefinition>
                 <RowDefinition Height="50*"></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="WhiteSmoke">Menu</TextBlock>
-            <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="WhiteSmoke">Mon Compte</TextBlock>
-            <TextBlock Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="WhiteSmoke">Ressource Humaines</TextBlock>
-            <TextBlock Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="WhiteSmoke">Général</TextBlock>
+            <TextBlock Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="WhiteSmoke" Margin="10,0,0,0">Menu</TextBlock>
+            <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="WhiteSmoke" Margin="10,0,0,0">Mon Compte</TextBlock>
+            <TextBlock Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="WhiteSmoke" Margin="10,0,0,0">Ressource Humaines</TextBlock>
+            <TextBlock Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="WhiteSmoke" Margin="10,0,0,0">Général</TextBlock>
         </Grid>
     </Grid>
 </UserControl>

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AirAtlantique.Model;
+using System.DirectoryServices;
 
 namespace AirAtlantique.Pages
 {
@@ -24,29 +25,25 @@ namespace AirAtlantique.Pages
         {
             InitializeComponent();
             changePage.Click += ChangePage_Click;
-            using (var db = new AirAtlantiqueContext())
-            {
-                var admin = new Employe()
-                {
-                    email = "admin@aa.com",
-                    login = "admin",
-                    nom = "admin",
-                    prenom = "admin"
-                };
-                db.employes.Add(admin);
-                this.admin = admin;      
-            }
+            
         }
 
         private void ChangePage_Click(object sender, RoutedEventArgs e)
         {          
-            var args = new Dictionary<String, Object>();
-
-            args.Add("nom",this.admin.nom );
-            args.Add("prenom",this.admin.prenom );
-
-            Switcher.Navigate(new Home(args) );
-
+            
         }
+        /*
+        private DirectoryEntry connectToAD()
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        */
     }
 }
