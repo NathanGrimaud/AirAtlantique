@@ -32,18 +32,13 @@ namespace AirAtlantique.Pages
         {          
             
         }
-        /*
+        
         private DirectoryEntry connectToAD()
         {
-            try
-            {
-
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            var ldap = new DirectoryEntry("nathan.ad.epsi.fr");
+            ldap.AuthenticationType = AuthenticationTypes.Secure;
+            ldap.Path = "OU=Secretariat,OU=NathanCorp,DC=nathan,DC=ad,DC=epsi,DC=fr";
+            return ldap;
         }
-        */
     }
 }
