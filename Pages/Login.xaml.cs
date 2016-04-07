@@ -29,21 +29,11 @@ namespace AirAtlantique.Pages
         }
 
         private void ChangePage_Click(object sender, RoutedEventArgs e)
-        {          
-            
-        }
-        /*
-        private DirectoryEntry connectToAD()
         {
-            try
-            {
-
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-        */
+            var args = new Dictionary<String, Object>();            
+            args.Add("nom", "nom_utilisateur");
+            args.Add("prenom", "prenom_utilisateur");            
+            Switcher.Navigate(new Home(args));
+        }      
     }
 }
