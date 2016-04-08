@@ -25,7 +25,6 @@ namespace AirAtlantique.Pages
         {
             InitializeComponent();
             changePage.Click += ChangePage_Click;
-            
         }
 
         private void ChangePage_Click(object sender, RoutedEventArgs e)

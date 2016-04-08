@@ -13,7 +13,6 @@ namespace AirAtlantique.Model
         public int id { get; set; }
 
         public bool estInterne { get; set; }
-
         public virtual Employe formateurInterne { get; set; }
         public virtual FormateurExterne formateurExterne { get; set; }
 

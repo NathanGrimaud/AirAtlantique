@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="AirAtlantique.Pages.AjouterEmployé"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AirAtlantique.Pages"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Label x:Name="nom" Content="Nom" HorizontalAlignment="Left" Margin="47,28,217,0" VerticalAlignment="Top"/>
+        <Label x:Name="prenom" Content="Prénom" HorizontalAlignment="Left" Margin="40,69,210,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nomEmploye" Height="23" Margin="141,23,15,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Center" Width="144"/>
+        <TextBox x:Name="prenomEmploye" Height="23" Margin="141,64,15,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Center" Width="144"/>
+        <Button x:Name="ajouterEmploye" Content="Ajouter" Margin="202,226,0,0" VerticalAlignment="Top" Click="ajouterEmploye_Click"  Width="83"/>
+        <Button x:Name="cancel" Content="Annuler" Margin="114,226,104,0" VerticalAlignment="Top" Click="cancel_Click"  Width="83" Background="#FF960044"/>
+
+    </Grid>
+</UserControl>

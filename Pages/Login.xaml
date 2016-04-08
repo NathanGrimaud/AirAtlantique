@@ -7,9 +7,7 @@
              xmlns:local="clr-namespace:AirAtlantique.Pages"
              mc:Ignorable="d" 
              d:DesignHeight="345" d:DesignWidth="396">
-
     <Grid>
-        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
@@ -25,10 +23,8 @@
                 <ColumnDefinition Width="2*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="changePage" Content="Login" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Margin="0,10,5,8"/>
+            <Button x:Name="changePage" Content="Login" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Margin="32,8,81,10" Grid.ColumnSpan="2"/>
             <TextBlock x:Name="error" Margin="0,23,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
         </Grid>
 
-
-    </Grid>
 </UserControl>

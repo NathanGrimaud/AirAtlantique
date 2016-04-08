@@ -17,7 +17,7 @@ namespace AirAtlantique.Model
 
         public int duree { get; set; }
 
-        public int dureeValide { get; set; }
+        public DateTime dureeValide { get; set; }
 
         public bool estGlobale { get; set; }
 

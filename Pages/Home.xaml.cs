@@ -17,6 +17,17 @@ namespace AirAtlantique.Pages
             {
                 @params.Text += $"key : {item.Key}  value :  {item.Value} ";
             }
+
+        }
+
+        private void ajoutFormation_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Switcher.Navigate(new ajouterFormation());
+        }
+
+        private void employes_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Switcher.Navigate(new HomeEmployés());
         }
     }
 }
