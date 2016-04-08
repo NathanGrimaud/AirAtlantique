@@ -234,3 +234,8 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+*.sln
+*.csproj
+App.config
+App.config
