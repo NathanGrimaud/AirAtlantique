@@ -13,6 +13,8 @@
         <TextBox x:Name="prenomEmploye" Height="23" Margin="141,64,15,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Center" Width="144"/>
         <Button x:Name="ajouterEmploye" Content="Ajouter" Margin="202,226,0,0" VerticalAlignment="Top" Click="ajouterEmploye_Click"  Width="83"/>
         <Button x:Name="cancel" Content="Annuler" Margin="114,226,104,0" VerticalAlignment="Top" Click="cancel_Click"  Width="83" Background="#FF960044"/>
+        <Label x:Name="metier" Content="Métier(s)" HorizontalAlignment="Left" Margin="47,114,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="lesMetiers" HorizontalAlignment="Left" Height="100" Margin="163,121,0,0" VerticalAlignment="Top" Width="100"/>
 
     </Grid>
 </UserControl>

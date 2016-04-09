@@ -23,6 +23,38 @@ namespace AirAtlantique.Pages
         public AjouterMetier()
         {
             InitializeComponent();
+            ShowData();
+
+        }
+        private void ShowData()
+        {
+            List<Model.Metier> listeMetier = LiaisonBDD.ListeMetiers();
+            foreach (var metier in listeMetier)
+            {
+                listeMetiers.Items.Add(metier.nom);
+            }
+        }
+
+        private void RefreshData()
+        {
+            listeMetiers.Items.Clear();
+            alertEmpty.Text = String.Empty;
+            ShowData();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            if (addMetier.Text != "")
+            {
+                LiaisonBDD.AjouterMetier(addMetier.Text);
+                addMetier.Clear();
+                RefreshData();
+                
+            }
+            else
+            {
+                alertEmpty.Text = "Veuillez entrer un métier valide!";
+            }
         }
     }
 }

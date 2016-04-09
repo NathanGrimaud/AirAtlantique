@@ -25,7 +25,7 @@ namespace AirAtlantique
             }
         }
 
-        public static void AddEmploye(string nom, string prenom, string password, string login, string email)
+        public static void AddEmploye(string nom, string prenom, string password, string login, string email, ICollection<Model.Metier> metierEmployé)
         {
             using (var db = new AirAtlantiqueContext())
             {
@@ -35,7 +35,8 @@ namespace AirAtlantique
                     prenom = prenom,
                     password = password,
                     login = login,
-                    email = email
+                    email = email,
+                    metier = metierEmployé
                 });
                 db.SaveChanges();
             }
@@ -62,6 +63,17 @@ namespace AirAtlantique
             }
         }
 
+        public static void AjouterMetier(string nom)
+        {
+            using (var db = new AirAtlantiqueContext())
+            {
+                db.metiers.Add(new Model.Metier()
+                {
+                    nom = nom,
+                });
+                db.SaveChanges();
+            }
+        }
 
 
     }
