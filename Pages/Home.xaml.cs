@@ -12,12 +12,18 @@ namespace AirAtlantique.Pages
         public Home(Dictionary<String, Object> parameters) : base()
         {
             InitializeComponent();
+            ((MainWindow)System.Windows.Application.Current.MainWindow).page_name.Text = "Accueil";
             Switcher.changeMenu(new SideMenu());
             foreach (var item in parameters)
             {
                 @params.Text += $"key : {item.Key}  value :  {item.Value} ";
             }
 
+        }
+
+        public Home()
+        {
+            InitializeComponent();
         }
 
         private void ajoutFormation_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -28,6 +34,16 @@ namespace AirAtlantique.Pages
         private void employes_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             Switcher.Navigate(new HomeEmployés());
+        }
+
+        private void ajoutSession_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Switcher.Navigate(new AjouterSession());
+        }
+
+        private void metiers_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Switcher.Navigate(new AjouterMetier());
         }
     }
 }

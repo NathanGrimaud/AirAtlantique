@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AirAtlantique.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,8 @@ namespace AirAtlantique.Pages
         public AjouterEmployé()
         {
             InitializeComponent();
-            List<Model.Metier> listeMetier = LiaisonBDD.ListeMetiers();
+            ((MainWindow)System.Windows.Application.Current.MainWindow).page_name.Text = "Ajouter un employé";
+            List<Metier> listeMetier = LiaisonBDD.ListerMétier();
             foreach (var metier in listeMetier)
             {
                 lesMetiers.Items.Add(metier.nom);
@@ -34,31 +36,31 @@ namespace AirAtlantique.Pages
         {
             //identifiant par défaut de l'employé (prénom.nom)
             var login = prenomEmploye.Text.ToLower() + "." + nomEmploye.Text.ToLower();
+
             //mot de passe par défaut de l'employé (prénom.nom) A définir par l'utilisateur ensuite?
             var mdp = prenomEmploye.Text.ToLower() + "." + nomEmploye.Text.ToLower();
+
             //mail par défaut de l'employé (prénom.nom@airatlantique.com)
             var mail = prenomEmploye.Text.ToLower() + "." + nomEmploye.Text.ToLower() + "@airatlantique.com";
 
-            List<Model.Metier> listeMetier = LiaisonBDD.ListeMetiers();
+            List<Metier> listeMetier = LiaisonBDD.ListerMétier();
             List<string> metierChoisis = lesMetiers.SelectedItems.Cast<string>().ToList();
-            List<Model.Metier> LesMetiers = new List<Model.Metier>();
 
-            foreach (var metier in listeMetier)
-            {
-                foreach (var item in metierChoisis)
-                {
-                    if (metier.nom == item)
-                        LesMetiers.Add(metier);
-                }
-            }
-            ICollection<Model.Metier> collectionMetiers = LesMetiers;
+            LiaisonBDD.AjouterEmployé(nomEmploye.Text, prenomEmploye.Text, mdp, login, mail, metierChoisis);
 
-            LiaisonBDD.AddEmploye(nomEmploye.Text, prenomEmploye.Text, mdp, login, mail, collectionMetiers);
+            //Clear all input
+            nomEmploye.Clear();
+            prenomEmploye.Clear();
         }
 
         private void cancel_Click(object sender, RoutedEventArgs e)
         {
+            Switcher.Navigate(new HomeEmployés());
+        }
 
+        private void retour_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.Navigate(new HomeEmployés());
         }
     }
 }

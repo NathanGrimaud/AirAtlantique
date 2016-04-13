@@ -25,7 +25,8 @@ namespace AirAtlantique.Pages
         public ajouterFormation() : base()
         {
             InitializeComponent();
-            List<Model.Metier> listeMetier = LiaisonBDD.ListeMetiers();
+            ((MainWindow)System.Windows.Application.Current.MainWindow).page_name.Text = "Ajouter une formation";
+            List<Model.Metier> listeMetier = LiaisonBDD.ListerMétier();
             foreach (var metier in listeMetier)
             {
                 Metiers.Items.Add(metier.nom);
@@ -35,32 +36,28 @@ namespace AirAtlantique.Pages
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             bool estGlobale = false;
-            bool estActive = false;
+            bool estActive = true;
 
             if (Globale.IsChecked == true)
             {
                 estGlobale = true;
             }
 
-            List<Model.Metier> listeMetier = LiaisonBDD.ListeMetiers();
             List<string> metierChoisis = Metiers.SelectedItems.Cast<string>().ToList();
-            List<Model.Metier> LesMetiers = new List<Model.Metier>();
+            
+            LiaisonBDD.AjouterFormation(Nom.Text, int.Parse(Duree.Text), Date.DisplayDate, estGlobale, estActive, metierChoisis);
 
-            foreach (var metier in listeMetier)
-            {
-                foreach (var item in metierChoisis)
-                {
-                    if (metier.nom == item)
-                        LesMetiers.Add(metier);
-                }
-            }
-            ICollection<Model.Metier> collectionMetiers = LesMetiers;
-            LiaisonBDD.AddFormation(Nom.Text, int.Parse(Duree.Text), Date.DisplayDate, estGlobale, estActive, collectionMetiers);
+            //Clear all input
+            Nom.Clear();
+            Duree.Clear();
+            Date.SelectedDate = null;
+            Globale.IsChecked = false;
+            Metiers.Items.Clear();
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-
+            Switcher.Navigate(new Home());
         }
     }
 }

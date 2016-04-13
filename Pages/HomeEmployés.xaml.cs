@@ -23,6 +23,7 @@ namespace AirAtlantique.Pages
         public HomeEmployés()
         {
             InitializeComponent();
+            ((MainWindow)System.Windows.Application.Current.MainWindow).page_name.Text = "Employés";
         }
 
         private void ajouterEmployé_Click(object sender, RoutedEventArgs e)
@@ -30,11 +31,15 @@ namespace AirAtlantique.Pages
             Switcher.Navigate(new AjouterEmployé());
         }
 
-        private void metiers_Click(object sender, RoutedEventArgs e)
+        private void retour_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Navigate(new AjouterMetier());
+            Switcher.Navigate(new Home());
         }
 
+        private void ajouterEmployé_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.Navigate(new GérerEmployé());
+        }
     }
 }
 

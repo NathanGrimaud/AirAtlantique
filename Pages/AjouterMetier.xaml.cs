@@ -23,12 +23,13 @@ namespace AirAtlantique.Pages
         public AjouterMetier()
         {
             InitializeComponent();
+            ((MainWindow)System.Windows.Application.Current.MainWindow).page_name.Text = "Ajouter un métier";
             ShowData();
 
         }
         private void ShowData()
         {
-            List<Model.Metier> listeMetier = LiaisonBDD.ListeMetiers();
+            List<Model.Metier> listeMetier = LiaisonBDD.ListerMétier();
             foreach (var metier in listeMetier)
             {
                 listeMetiers.Items.Add(metier.nom);
@@ -46,15 +47,30 @@ namespace AirAtlantique.Pages
         {
             if (addMetier.Text != "")
             {
-                LiaisonBDD.AjouterMetier(addMetier.Text);
+                LiaisonBDD.AjouterMétier(addMetier.Text);
                 addMetier.Clear();
                 RefreshData();
-                
             }
             else
             {
                 alertEmpty.Text = "Veuillez entrer un métier valide!";
             }
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.Navigate(new HomeEmployés());
+        }
+
+        private void supprimer_Click(object sender, RoutedEventArgs e)
+        {
+            var item = listeMetiers.SelectedItem.ToString();
+            LiaisonBDD.SupprimerMétier(item);
+        }
+
+        private void listeMetiers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            supprimer.Visibility = Visibility.Visible;
         }
     }
 }

@@ -4,17 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AirAtlantique.Pages"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             mc:Ignorable="d"
+             d:DesignHeight="500" d:DesignWidth="800"
+             >
     <Grid>
         <Label x:Name="nom" Content="Nom" HorizontalAlignment="Left" Margin="47,28,217,0" VerticalAlignment="Top"/>
         <Label x:Name="prenom" Content="Prénom" HorizontalAlignment="Left" Margin="40,69,210,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="nomEmploye" Height="23" Margin="141,23,15,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Center" Width="144"/>
-        <TextBox x:Name="prenomEmploye" Height="23" Margin="141,64,15,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Center" Width="144"/>
-        <Button x:Name="ajouterEmploye" Content="Ajouter" Margin="202,226,0,0" VerticalAlignment="Top" Click="ajouterEmploye_Click"  Width="83"/>
-        <Button x:Name="cancel" Content="Annuler" Margin="114,226,104,0" VerticalAlignment="Top" Click="cancel_Click"  Width="83" Background="#FF960044"/>
-        <Label x:Name="metier" Content="Métier(s)" HorizontalAlignment="Left" Margin="47,114,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="lesMetiers" HorizontalAlignment="Left" Height="100" Margin="163,121,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="nomEmploye" Height="23" Margin="142,23,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="144"/>
+        <TextBox x:Name="prenomEmploye" Height="23" Margin="142,64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="144"/>
+        <Button x:Name="ajouterEmploye" Content="Ajouter" Margin="686,399,31,0" VerticalAlignment="Top" Click="ajouterEmploye_Click"  Width="83"/>
+        <Button x:Name="cancel" Content="Annuler" Margin="554,399,163,0" VerticalAlignment="Top" Click="cancel_Click"  Width="83" Background="#FF960044"/>
+        <Label x:Name="metier" Content="Métier(s)" HorizontalAlignment="Left" Margin="40,114,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="lesMetiers" HorizontalAlignment="Left" Height="100" SelectionMode="Multiple" Margin="163,121,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="retour" Content="Retour" Margin="686,22,31,0" VerticalAlignment="Top"  Width="83" Click="retour_Click"/>
 
     </Grid>
 </UserControl>

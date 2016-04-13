@@ -94,8 +94,14 @@
     <Compile Include="Pages\AjouterMetier.xaml.cs">
       <DependentUpon>AjouterMetier.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AjouterSession.xaml.cs">
+      <DependentUpon>AjouterSession.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Component\SideMenu.xaml.cs">
       <DependentUpon>SideMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GérerEmployé.xaml.cs">
+      <DependentUpon>GérerEmployé.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
@@ -131,7 +137,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AjouterSession.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Component\SideMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\GérerEmployé.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

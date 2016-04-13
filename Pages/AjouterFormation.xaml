@@ -4,26 +4,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AirAtlantique.Pages"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid RenderTransformOrigin="0.513,0.504">
-        <Label x:Name="NomFormation" Content="Nom :" Margin="37,20,0,0" HorizontalAlignment="Left" Width="42" Height="26" VerticalAlignment="Top"/>
-        <TextBox x:Name="Nom" Margin="164,23,0,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120"/>
+             mc:Ignorable="d" Height="542.5" Width="1078">
+    <Grid>
+        <Label x:Name="NomFormation" Content="Nom :" Margin="308,28,0,0" HorizontalAlignment="Left" Width="123" Height="38" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
+        <TextBox x:Name="Nom" Margin="480,28,0,0" TextWrapping="Wrap" Height="33" VerticalAlignment="Top" HorizontalAlignment="Left" Width="134" FontSize="14.667"/>
 
-        <Label x:Name="DureeFormation" Content="Durée :" Margin="37,58,215,216"/>
-        <TextBox x:Name="Duree" Margin="164,61,0,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120"/>
+        <Label x:Name="DureeFormation" Content="Durée :" Margin="308,66,647,440" FontSize="18.667" FontWeight="Bold"/>
+        <TextBox x:Name="Duree" Margin="480,68,0,0" TextWrapping="Wrap" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="134" FontSize="14.667"/>
 
-        <Label x:Name="DateExpiration" Content="Date d'expiration :" HorizontalAlignment="Left" Margin="37,95,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="Date" HorizontalAlignment="Left" Margin="198,95,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.478,0.12" Width="86"/>
+        <Label x:Name="DateExpiration" Content="Date d'expiration :" HorizontalAlignment="Left" Margin="308,102,0,0" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
+        <DatePicker x:Name="Date" HorizontalAlignment="Left" Margin="514,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.478,0.12" Width="100" Height="25" FontSize="16"/>
 
-        <Label x:Name="estGlobale" Content="Formation globale :" HorizontalAlignment="Left" Margin="37,134,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Globale" Content="" HorizontalAlignment="Left" Margin="255,142,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="estGlobale" Content="Formation globale :" HorizontalAlignment="Left" Margin="308,142,0,0" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
+        <CheckBox x:Name="Globale" Content="" HorizontalAlignment="Left" Margin="600,150,0,0" VerticalAlignment="Top" Height="27" Width="26"/>
 
-        <Label x:Name="MetiersConcernes" Content="Métiers concernés :" HorizontalAlignment="Left" Margin="37,174,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="Metiers" HorizontalAlignment="Left" Height="64" Margin="181,183,0,0" VerticalAlignment="Top" Width="109" SelectionMode="Multiple"/>
+        <Label x:Name="MetiersConcernes" Content="Métiers concernés :" HorizontalAlignment="Left" Margin="308,182,0,0" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
+        <ListBox x:Name="Metiers" HorizontalAlignment="Left" Height="208" Margin="308,238,0,0" VerticalAlignment="Top" Width="412" SelectionMode="Multiple"/>
 
-        <Button x:Name="Cancel" Content="Annuer&#xD;&#xA;" Margin="164,270,0,0" Height="20" FontSize="8" Click="Cancel_Click" Background="#FF960030" VerticalAlignment="Top" HorizontalAlignment="Left" Width="62"/>
-        <Button x:Name="Add" Content="Ajouter" Margin="228,270,0,0" Height="20" FontSize="8" Click="Add_Click" Background="#FF009688" VerticalAlignment="Top" HorizontalAlignment="Left" Width="62"/>
+        <Button x:Name="Cancel" Content="Annuler" Margin="725,440,0,0" Height="42" FontSize="16" Click="Cancel_Click" Background="#FF960030" VerticalAlignment="Center" HorizontalAlignment="Left" Width="106"/>
+        <Button x:Name="Add" Content="Ajouter" Margin="910,442,0,0" Height="40" FontSize="16" Click="Add_Click" Background="#FF009688" VerticalAlignment="Center" HorizontalAlignment="Left" Width="96"/>
 
     </Grid>
 </UserControl>

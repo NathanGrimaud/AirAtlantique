@@ -16,7 +16,9 @@ namespace AirAtlantique.Model
 
         [StringLength(40)]
         public string commentaire { get; set; }
+
         public virtual Status status { get; set; }
+
         public virtual Employe employe { get; set; }
 
     }
