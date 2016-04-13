@@ -12,12 +12,15 @@ namespace AirAtlantique.Model
         [Key]
         public int id { get; set; }
 
+        [Required]
         [StringLength(40)]
         public string nom { get; set; }
 
+        [Required]
         [StringLength(40)]
         public string prenom { get; set; }
 
+        [Required]
         [StringLength(40)]
         public string email { get; set; }
 

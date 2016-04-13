@@ -10,7 +10,8 @@
         <TextBox x:Name="addMetier" HorizontalAlignment="Left" Height="23" Margin="337,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185"/>
         <Button x:Name="button" Content="Ajouter un métier" HorizontalAlignment="Left" Margin="365,200,0,0" VerticalAlignment="Top" Width="142" FontSize="12" Height="33" Click="button_Click"/>
         <ListBox x:Name="listeMetiers" HorizontalAlignment="Left" Height="340" Margin="21,39,0,0" VerticalAlignment="Top" Width="185" SelectionChanged="listeMetiers_SelectionChanged" />
-        <TextBlock x:Name="alertEmpty" HorizontalAlignment="Left" Margin="337,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185"/>
+        <TextBlock x:Name="alertEmpty" HorizontalAlignment="Left" Margin="340,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Foreground="#FFCB0A0A"/>
+        <TextBlock x:Name="alertExist" HorizontalAlignment="Left" Margin="340,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Foreground="#FFCB0A0A"/>
         <Button x:Name="retour" Content="Retour" HorizontalAlignment="Left" Margin="695,18,0,0" VerticalAlignment="Top" Width="95" Height="34" FontSize="12" Click="button1_Click"/>
         <Button x:Name="supprimer" Content="Supprimer" HorizontalAlignment="Left" Margin="37,252,0,0" Visibility="Hidden" VerticalAlignment="Top" Width="71" FontSize="8" Background="#FF960022" Height="20" Click="supprimer_Click"/>
 

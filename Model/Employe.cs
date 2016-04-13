@@ -14,9 +14,11 @@ namespace AirAtlantique.Model
         public int id { get; set; }
 
         [StringLength(40)]
+        [Required]
         public string nom { get; set; }
 
         [StringLength(40)]
+        [Required]
         public string prenom { get; set; }
 
         [StringLength(50)]

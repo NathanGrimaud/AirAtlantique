@@ -40,11 +40,13 @@ namespace AirAtlantique.Pages
         {
             listeMetiers.Items.Clear();
             alertEmpty.Text = String.Empty;
+            alertExist.Text = String.Empty;
             ShowData();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+
             if (addMetier.Text != "")
             {
                 LiaisonBDD.AjouterMétier(addMetier.Text);

@@ -13,10 +13,13 @@ namespace AirAtlantique.Model
         public int id { get; set; }
 
         [StringLength(40)]
+        [Required]
         public string nom { get; set; }
 
+        [Required]
         public int duree { get; set; }
 
+        [Required]
         public DateTime dureeValide { get; set; }
 
         public bool estGlobale { get; set; }

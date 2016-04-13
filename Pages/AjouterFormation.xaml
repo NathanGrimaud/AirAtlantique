@@ -19,10 +19,13 @@
         <CheckBox x:Name="Globale" Content="" HorizontalAlignment="Left" Margin="600,150,0,0" VerticalAlignment="Top" Height="27" Width="26"/>
 
         <Label x:Name="MetiersConcernes" Content="Métiers concernés :" HorizontalAlignment="Left" Margin="308,182,0,0" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
-        <ListBox x:Name="Metiers" HorizontalAlignment="Left" Height="208" Margin="308,238,0,0" VerticalAlignment="Top" Width="412" SelectionMode="Multiple"/>
+        <ListBox x:Name="Metiers" HorizontalAlignment="Left" Height="208" Margin="308,238,0,0" VerticalAlignment="Top" Width="412" SelectionMode="Multiple"></ListBox>
 
         <Button x:Name="Cancel" Content="Annuler" Margin="725,440,0,0" Height="42" FontSize="16" Click="Cancel_Click" Background="#FF960030" VerticalAlignment="Center" HorizontalAlignment="Left" Width="106"/>
         <Button x:Name="Add" Content="Ajouter" Margin="910,442,0,0" Height="40" FontSize="16" Click="Add_Click" Background="#FF009688" VerticalAlignment="Center" HorizontalAlignment="Left" Width="96"/>
+        <Label x:Name="Formations" Content="Formation existantes" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ListBox x:Name="LB_ListeFormations" HorizontalAlignment="Left" Height="275" Margin="23,41,0,0" VerticalAlignment="Top" Width="152"/>
+        <TextBlock x:Name="TB_Alert" HorizontalAlignment="Left" Margin="841,432,0,0" TextWrapping="Wrap" Text="" Visibility="Hidden" VerticalAlignment="Top"/>
 
     </Grid>
 </UserControl>

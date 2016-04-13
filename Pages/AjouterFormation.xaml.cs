@@ -31,6 +31,11 @@ namespace AirAtlantique.Pages
             {
                 Metiers.Items.Add(metier.nom);
             }
+
+            foreach (var formations in LiaisonBDD.ListerFormations())
+            {
+                LB_ListeFormations.Items.Add(formations.nom);
+            }
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -44,20 +49,28 @@ namespace AirAtlantique.Pages
             }
 
             List<string> metierChoisis = Metiers.SelectedItems.Cast<string>().ToList();
-            
-            LiaisonBDD.AjouterFormation(Nom.Text, int.Parse(Duree.Text), Date.DisplayDate, estGlobale, estActive, metierChoisis);
+            try
+            {
+                LiaisonBDD.AjouterFormation(Nom.Text, int.Parse(Duree.Text), Date.DisplayDate, estGlobale, estActive, metierChoisis);
 
-            //Clear all input
-            Nom.Clear();
-            Duree.Clear();
-            Date.SelectedDate = null;
-            Globale.IsChecked = false;
-            Metiers.Items.Clear();
+                //Clear all input
+                Nom.Clear();
+                Duree.Clear();
+                Date.SelectedDate = null;
+                Globale.IsChecked = false;
+                Metiers.Items.Clear();
+            }
+            catch
+            {
+                TB_Alert.Visibility = Visibility.Visible;
+                TB_Alert.Text = "Veuillez renseigner tous les champs";
+            }
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             Switcher.Navigate(new Home());
         }
+
     }
 }

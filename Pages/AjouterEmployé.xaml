@@ -17,6 +17,6 @@
         <Label x:Name="metier" Content="Métier(s)" HorizontalAlignment="Left" Margin="40,114,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="lesMetiers" HorizontalAlignment="Left" Height="100" SelectionMode="Multiple" Margin="163,121,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="retour" Content="Retour" Margin="686,22,31,0" VerticalAlignment="Top"  Width="83" Click="retour_Click"/>
-
+        <TextBlock x:Name="TB_Alert" HorizontalAlignment="Left" Margin="701,436,0,0"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="#FFB60A0A"/>
     </Grid>
 </UserControl>

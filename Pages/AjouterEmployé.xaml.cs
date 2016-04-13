@@ -45,12 +45,21 @@ namespace AirAtlantique.Pages
 
             List<Metier> listeMetier = LiaisonBDD.ListerMétier();
             List<string> metierChoisis = lesMetiers.SelectedItems.Cast<string>().ToList();
+            try
+            {
+                LiaisonBDD.AjouterEmployé(nomEmploye.Text, prenomEmploye.Text, mdp, login, mail, metierChoisis);
+                //Clear all input
+                nomEmploye.Clear();
+                prenomEmploye.Clear();
+                TB_Alert.Text = null;
+            }
+            catch
+            {
+                TB_Alert.Visibility = Visibility.Visible;
+                TB_Alert.Text = "Veuillez renseigner tous les champs";
+            }
 
-            LiaisonBDD.AjouterEmployé(nomEmploye.Text, prenomEmploye.Text, mdp, login, mail, metierChoisis);
 
-            //Clear all input
-            nomEmploye.Clear();
-            prenomEmploye.Clear();
         }
 
         private void cancel_Click(object sender, RoutedEventArgs e)

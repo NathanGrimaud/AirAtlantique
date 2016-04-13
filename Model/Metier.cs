@@ -11,7 +11,9 @@ namespace AirAtlantique.Model
     {
         [Key]
         public int id { get; set; }
+
         [StringLength(40)]
+        [Required]
         public string nom { get; set; }
 
         public ICollection<Formation> formations { get; set; }

@@ -76,9 +76,16 @@ namespace AirAtlantique.Pages
             {
                 employé.Add(item.ToString());
             }
-            
-            LiaisonBDD.AjouterSession(TB_NomSession.Text, DP_date_debut.DisplayDate, DP_date_fin.DisplayDate, CB_listeFormations.Text, employé);
-            RefreshData();
+            try
+            {
+                LiaisonBDD.AjouterSession(TB_NomSession.Text, DP_date_debut.DisplayDate, DP_date_fin.DisplayDate, CB_listeFormations.Text, employé);
+                RefreshData();
+            }
+            catch
+            {
+                TB_Alert.Visibility = Visibility.Visible;
+                TB_Alert.Text = "Veuillez renseigner tous les champs";
+            }
         }
     }
 }

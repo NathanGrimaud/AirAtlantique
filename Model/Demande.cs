@@ -11,7 +11,7 @@ namespace AirAtlantique.Model
     {
         [Key]
         public int id { get; set; }
-
+        [Required]
         public DateTime dateDemande { get; set; }
 
         [StringLength(40)]
