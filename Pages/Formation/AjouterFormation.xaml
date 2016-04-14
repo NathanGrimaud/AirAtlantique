@@ -7,25 +7,29 @@
              mc:Ignorable="d" Height="542.5" Width="1078">
     <Grid>
         <Label x:Name="NomFormation" Content="Nom :" Margin="308,28,0,0" HorizontalAlignment="Left" Width="123" Height="38" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
-        <TextBox x:Name="Nom" Margin="480,28,0,0" TextWrapping="Wrap" Height="33" VerticalAlignment="Top" HorizontalAlignment="Left" Width="134" FontSize="14.667"/>
+        <TextBox x:Name="TB_nom" Margin="480,28,0,0" TextWrapping="Wrap" Height="33" VerticalAlignment="Top" HorizontalAlignment="Left" Width="134" FontSize="14.667"/>
 
         <Label x:Name="DureeFormation" Content="Durée :" Margin="308,66,647,440" FontSize="18.667" FontWeight="Bold"/>
-        <TextBox x:Name="Duree" Margin="480,68,0,0" TextWrapping="Wrap" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="134" FontSize="14.667"/>
+        <TextBox x:Name="TB_duree" Margin="480,68,0,0" TextWrapping="Wrap" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="134" FontSize="14.667"/>
 
         <Label x:Name="DateExpiration" Content="Date d'expiration :" HorizontalAlignment="Left" Margin="308,102,0,0" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
-        <DatePicker x:Name="Date" HorizontalAlignment="Left" Margin="514,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.478,0.12" Width="100" Height="25" FontSize="16"/>
+        <DatePicker x:Name="DP_Date" HorizontalAlignment="Left" DisplayDate="{Binding DateTime.Now}" Margin="514,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.478,0.12" Width="100" Height="25" FontSize="16"/>
 
         <Label x:Name="estGlobale" Content="Formation globale :" HorizontalAlignment="Left" Margin="308,142,0,0" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
-        <CheckBox x:Name="Globale" Content="" HorizontalAlignment="Left" Margin="600,150,0,0" VerticalAlignment="Top" Height="27" Width="26"/>
+        <CheckBox x:Name="CB_estGlobale" Content="" HorizontalAlignment="Left" Margin="600,150,0,0" VerticalAlignment="Top" Height="27" Width="26"/>
 
         <Label x:Name="MetiersConcernes" Content="Métiers concernés :" HorizontalAlignment="Left" Margin="308,182,0,0" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
-        <ListBox x:Name="Metiers" HorizontalAlignment="Left" Height="208" Margin="308,238,0,0" VerticalAlignment="Top" Width="412" SelectionMode="Multiple"></ListBox>
+        <ListBox x:Name="LB_Metiers" HorizontalAlignment="Left" Height="170" Margin="308,238,0,0" VerticalAlignment="Top" Width="354" SelectionMode="Multiple"></ListBox>
 
-        <Button x:Name="Cancel" Content="Annuler" Margin="725,440,0,0" Height="42" FontSize="16" Click="Cancel_Click" Background="#FF960030" VerticalAlignment="Center" HorizontalAlignment="Left" Width="106"/>
-        <Button x:Name="Add" Content="Ajouter" Margin="910,442,0,0" Height="40" FontSize="16" Click="Add_Click" Background="#FF009688" VerticalAlignment="Center" HorizontalAlignment="Left" Width="96"/>
+        <Button x:Name="Cancel" Content="Annuler" Margin="779,470,0,30" Height="42" FontSize="16" Click="Cancel_Click" Background="#FFE53935" VerticalAlignment="Center" HorizontalAlignment="Left" Width="106"/>
+        <Button x:Name="Add" Content="Ajouter" Margin="910,442,0,0" Height="40" FontSize="16" Click="Add_Click" Background="#FF42A5F5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="96"/>
         <Label x:Name="Formations" Content="Formation existantes" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <ListBox x:Name="LB_ListeFormations" HorizontalAlignment="Left" Height="275" Margin="23,41,0,0" VerticalAlignment="Top" Width="152"/>
+        <ListBox x:Name="LB_ListeFormations" HorizontalAlignment="Left" Height="275" Margin="23,41,0,0" VerticalAlignment="Top" Width="152" MouseLeftButtonUp="LB_ListeFormations_MouseLeftButtonUp" />
         <TextBlock x:Name="TB_Alert" HorizontalAlignment="Left" Margin="841,432,0,0" TextWrapping="Wrap" Text="" Visibility="Hidden" VerticalAlignment="Top"/>
-
+        <Grid x:Name="editFormation" Visibility="Hidden">
+            <Button x:Name="BT_majFormation" Content="Mettre à jour" HorizontalAlignment="Left" Margin="59,352,0,0" VerticalAlignment="Top" Width="116" Click="BT_majFormation_Click"/>
+            <Button x:Name="BT_supprimer" Content="Supprimer" HorizontalAlignment="Left" Margin="59,411,0,0" VerticalAlignment="Top" Width="116" Click="BT_supprimer_Click"/>
+        </Grid>
+        <Button x:Name="Retour" Content="Retour" HorizontalAlignment="Left" Margin="994,15,0,0" VerticalAlignment="Top" Width="74" Click="Retour_Click"/>
     </Grid>
 </UserControl>

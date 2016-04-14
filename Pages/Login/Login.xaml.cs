@@ -28,11 +28,8 @@ namespace AirAtlantique.Pages.Login
         }
 
         private void ChangePage_Click(object sender, RoutedEventArgs e)
-        {
-            var args = new Dictionary<String, Object>();            
-            args.Add("nom", "nom_utilisateur");
-            args.Add("prenom", "prenom_utilisateur");            
-            Switcher.Navigate(new Home.Home(args));
+        {        
+            Switcher.Navigate(new Home.Home());
         }      
     }
 }

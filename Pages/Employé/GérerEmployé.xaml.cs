@@ -36,16 +36,19 @@ namespace AirAtlantique.Pages.Employé
 
         private void LB_Formations_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            ClearSessionItems();
-            session.Visibility = Visibility.Visible;
-            editerEmployé.Visibility = Visibility.Visible;
-            supprimerEmployé.Visibility = Visibility.Visible;
-            List<Model.Session> sessionsEmploye = SessionDAO.ListerSession(EmployéDAO.SelectUniqueEmployé(LB_liste_employé.SelectedItem.ToString()), LB_Formations.SelectedItem.ToString());
-            foreach (var item in sessionsEmploye)
+            if (LB_Formations.HasItems)
             {
-                LB_Sessions.Items.Add(item.nom);
-                LB_Sessions_DateDebut.Items.Add(item.dateDebut);
-                LB_Sessions_DateFin.Items.Add(item.dateFin);
+                ClearSessionItems();
+                session.Visibility = Visibility.Visible;
+                editerEmployé.Visibility = Visibility.Visible;
+                supprimerEmployé.Visibility = Visibility.Visible;
+                List<Model.Session> sessionsEmploye = SessionDAO.ListerSession(EmployéDAO.SelectUniqueEmployé(LB_liste_employé.SelectedItem.ToString()), LB_Formations.SelectedItem.ToString());
+                foreach (var item in sessionsEmploye)
+                {
+                    LB_Sessions.Items.Add(item.nom);
+                    LB_Sessions_DateDebut.Items.Add(item.dateDebut);
+                    LB_Sessions_DateFin.Items.Add(item.dateFin);
+                }
             }
         }
 
@@ -107,6 +110,10 @@ namespace AirAtlantique.Pages.Employé
                 LB_metiers_Employe.Items.Add(metiers.nom);
 
                 List<Model.Formation> formations = FormationDAO.SelectFormationEmploye(clicEmploye);
+                if (formations.Count == 0)
+                {
+                    LB_Formations.Items.Add("Aucune formation !");
+                }
                 foreach (var item in formations)
                 {
                     LB_Formations.Items.Add(item.nom);
@@ -134,11 +141,10 @@ namespace AirAtlantique.Pages.Employé
             EmployeSelectionne.email = TB_Prénom.Text.ToLower() + "." + TB_Nom.Text.ToLower() + "@airatlantique.com";
             EmployeSelectionne.login = TB_Prénom.Text.ToLower() + "." + TB_Nom.Text.ToLower();
             EmployeSelectionne.password = TB_Prénom.Text.ToLower() + "." + TB_Nom.Text.ToLower();
-
+            
 
             EmployéDAO.EditerEmployé(EmployeSelectionne);
             validerMaj.Visibility = Visibility.Hidden;
         }
-
     }
 }

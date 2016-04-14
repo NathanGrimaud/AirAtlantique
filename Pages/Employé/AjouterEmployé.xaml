@@ -3,19 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:AirAtlantique.Pages"
+             xmlns:local="clr-namespace:AirAtlantique.Pages.Employé"
              mc:Ignorable="d"
              d:DesignHeight="500" d:DesignWidth="800"
              >
     <Grid>
-        <Label x:Name="nom" Content="Nom" HorizontalAlignment="Left" Margin="47,28,217,0" VerticalAlignment="Top"/>
-        <Label x:Name="prenom" Content="Prénom" HorizontalAlignment="Left" Margin="40,69,210,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="nomEmploye" Height="23" Margin="142,23,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="144"/>
-        <TextBox x:Name="prenomEmploye" Height="23" Margin="142,64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="144"/>
-        <Button x:Name="ajouterEmploye" Content="Ajouter" Margin="686,399,31,0" VerticalAlignment="Top" Click="ajouterEmploye_Click"  Width="83"/>
-        <Button x:Name="cancel" Content="Annuler" Margin="554,399,163,0" VerticalAlignment="Top" Click="cancel_Click"  Width="83" Background="#FF960044"/>
-        <Label x:Name="metier" Content="Métier(s)" HorizontalAlignment="Left" Margin="40,114,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="lesMetiers" HorizontalAlignment="Left" Height="100" SelectionMode="Multiple" Margin="163,121,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="nom" Content="Nom" HorizontalAlignment="Left" Margin="47,28,0,0" VerticalAlignment="Top" Height="36" Width="63" FontSize="18.667"/>
+        <Label x:Name="prenom" Content="Prénom" HorizontalAlignment="Left" Margin="40,100,0,0" VerticalAlignment="Top" Height="40" Width="86" FontSize="18.667"/>
+        <TextBox x:Name="nomEmploye" Height="23" Margin="142,34,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="144" FontSize="18.667"/>
+        <TextBox x:Name="prenomEmploye" Height="23" Margin="142,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="144" FontSize="18.667"/>
+        <Button x:Name="ajouterEmploye" Content="Ajouter" Margin="686,399,31,0" VerticalAlignment="Top" Click="ajouterEmploye_Click"  Width="83" Background="#FF42A5F5"/>
+        <Button x:Name="cancel" Content="Annuler" Margin="578,399,139,0" VerticalAlignment="Top" Click="cancel_Click"  Width="83" Background="#FFE53935"/>
+        <Label x:Name="metier" Content="Métier(s)" HorizontalAlignment="Left" Margin="40,167,0,0" VerticalAlignment="Top" FontSize="18.667"/>
+        <ListBox x:Name="lesMetiers" HorizontalAlignment="Left" Height="100" SelectionMode="Multiple" Margin="142,193,0,0" VerticalAlignment="Top" Width="144" FontSize="16"/>
         <Button x:Name="retour" Content="Retour" Margin="686,22,31,0" VerticalAlignment="Top"  Width="83" Click="retour_Click"/>
         <TextBlock x:Name="TB_Alert" HorizontalAlignment="Left" Margin="701,436,0,0"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="#FFB60A0A"/>
     </Grid>

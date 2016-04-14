@@ -9,7 +9,7 @@
 >
     <Grid>
         <Button x:Name="ajouterEmployé" Content="Ajouter un employé" HorizontalAlignment="Left" Margin="125,248,0,0" VerticalAlignment="Top" Width="201" Height="41" Click="ajouterEmployé_Click"/>
-        <Button Margin="644,10,0,0" x:Name="retour" Content="Retour" VerticalAlignment="Top" Height="26" FontSize="14" Click="retour_Click" HorizontalAlignment="Left" Width="146" />
+        <Button Margin="701,10,0,0" x:Name="retour" Content="Retour" VerticalAlignment="Top" Height="26" FontSize="14" Click="retour_Click" HorizontalAlignment="Left" Width="89" />
         <Button x:Name="ajouterEmployé_Copy" Content="Gestion des employés" HorizontalAlignment="Left" Margin="468,248,0,0" VerticalAlignment="Top" Width="200" Height="41" Click="ajouterEmployé_Copy_Click"/>
     </Grid>
 </UserControl>

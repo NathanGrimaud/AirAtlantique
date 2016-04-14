@@ -6,16 +6,14 @@
              xmlns:local="clr-namespace:AirAtlantique.Pages"
              mc:Ignorable="d" Height="500" Width="800">
     <Grid>
-        <Label x:Name="L_ListeMétiers" Content="Métiers" HorizontalAlignment="Left" Height="23" Margin="21,11,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold"/>
+        <Label x:Name="L_ListeMétiers" Content="Métiers" HorizontalAlignment="Left" Height="28" Margin="21,11,0,0" VerticalAlignment="Top" Width="87" FontWeight="Bold" FontSize="16"/>
         <TextBox x:Name="TB_ajoutMetier" HorizontalAlignment="Left" Height="23" Margin="337,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" />
-        <Button x:Name="BT_ajoutMetier" Content="Ajouter un métier" HorizontalAlignment="Left" Margin="365,200,0,0" VerticalAlignment="Top" Width="142" FontSize="12" Height="33" Click="ajoutMetier_Click"/>
-        <ListBox x:Name="listeMetiers" HorizontalAlignment="Left" Height="340" Margin="21,39,0,0" VerticalAlignment="Top" Width="185" SelectionChanged="listeMetiers_SelectionChanged" />
+        <Button x:Name="BT_ajoutMetier" Content="Ajouter un métier" HorizontalAlignment="Left" Margin="365,200,0,0" VerticalAlignment="Top" Width="142" FontSize="12" Height="33" Click="ajoutMetier_Click" Background="#FF42A5F5"/>
+        <ListBox x:Name="listeMetiers" HorizontalAlignment="Left" Height="340" Margin="21,39,0,0" VerticalAlignment="Top" Width="185" SelectionChanged="listeMetiers_SelectionChanged"/>
         <TextBlock x:Name="alertEmpty" HorizontalAlignment="Left" Margin="340,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Foreground="#FFCB0A0A"/>
         <TextBlock x:Name="alertExist" HorizontalAlignment="Left" Margin="340,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Foreground="#FFCB0A0A"/>
         <Button x:Name="retour" Content="Retour" HorizontalAlignment="Left" Margin="695,18,0,0" VerticalAlignment="Top" Width="95" Height="34" FontSize="12" Click="button1_Click"/>
-        <Button x:Name="supprimer" Content="Supprimer" HorizontalAlignment="Left" Margin="37,252,0,0" Visibility="Hidden" VerticalAlignment="Top" Width="71" FontSize="8" Background="#FF960022" Height="20" Click="supprimer_Click"/>
-        <Button x:Name="BT_maj" Content="Mettre à jour" Visibility="Hidden" HorizontalAlignment="Left" Margin="365,201,0,0" VerticalAlignment="Top" Width="142" Click="BT_maj_Click" />
-     
-
+        <Button x:Name="supprimer" Content="Supprimer" HorizontalAlignment="Left" Margin="56,395,0,0" Visibility="Hidden" VerticalAlignment="Top" Width="71" FontSize="8" Background="#FFE53935" Height="20" Click="supprimer_Click"/>
+        <Button x:Name="BT_maj" Content="Mettre à jour" Visibility="Hidden" HorizontalAlignment="Left" Margin="365,201,0,0" VerticalAlignment="Top" Width="142" Click="BT_maj_Click" Background="#FF42A5F5" />
     </Grid>
 </UserControl>

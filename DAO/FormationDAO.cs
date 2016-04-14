@@ -4,12 +4,13 @@ using System.Linq;
 using AirAtlantique.Model;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace AirAtlantique.DAO
 {
     class FormationDAO
     {
-        public static void AjouterFormation(string nom, int duree, DateTime dureeValide, bool estGlobale, bool estActive, List<string> métierChoisis)
+        public static void AjouterFormation(string nom, string duree, DateTime dureeValide, bool estGlobale, bool estActive, List<string> métierChoisis)
         {
             using (var db = new AirAtlantiqueContext())
             {
@@ -84,6 +85,55 @@ namespace AirAtlantique.DAO
                     return returnFormation;
             }
         }
+
+        public static Formation SelectFormation(string formationSelectionne)
+        {
+            using (var db = new AirAtlantiqueContext())
+            {
+                Formation formation = (from f in db.formations
+                                 where formationSelectionne == f.nom
+                                 select f).First();
+                return formation;
+            }
+        }
+
+        public static void EditerFormation(Formation formation)
+        {
+            using (var db = new AirAtlantiqueContext())
+            {
+                var original = db.formations.Find(formation.id);
+                if (original != null)
+                {
+                    if (original.nom != formation.nom)
+                    {
+                        original.nom = formation.nom;
+                        original.duree = formation.duree;
+                        original.dureeValide = formation.dureeValide;
+                        original.estGlobale = formation.estGlobale;
+                        original.estActive = formation.estActive;
+
+                        db.SaveChanges();
+                    }
+                }
+            }
+        }
+
+        public static void SupprimerFormation(string nom)
+        {
+            Formation formationToDelete;
+            using (var context = new AirAtlantiqueContext())
+            {
+                formationToDelete = (from f in context.formations
+                                  where f.nom == nom
+                                  select f).FirstOrDefault<Formation>();
+            }
+            using (var newContext = new AirAtlantiqueContext())
+            {
+                newContext.Entry(formationToDelete).State = EntityState.Deleted;
+                newContext.SaveChanges();
+            }
+        }
+
     }
 
 

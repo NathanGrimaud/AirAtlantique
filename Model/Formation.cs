@@ -17,7 +17,7 @@ namespace AirAtlantique.Model
         public string nom { get; set; }
 
         [Required]
-        public int duree { get; set; }
+        public string duree { get; set; }
 
         [Required]
         public DateTime dureeValide { get; set; }

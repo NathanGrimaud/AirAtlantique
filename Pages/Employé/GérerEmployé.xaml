@@ -21,9 +21,9 @@
 
         <Button x:Name="button" Content="Retour" HorizontalAlignment="Left" Margin="715,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.693,0.125" Click="button_Click"/>
 
-        <Label x:Name="L_Formations" Content="Ses formations :" HorizontalAlignment="Left" Margin="277,327,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="L_Formations" Content="Ses formations :" HorizontalAlignment="Left" Margin="276,246,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="24"/>
 
-        <ListBox x:Name="LB_Formations" HorizontalAlignment="Left" Height="97" Margin="383,345,0,0" VerticalAlignment="Top" Width="245" Background="#FFEAEAEA" MouseLeftButtonUp="LB_Formations_MouseLeftButtonUp"/>
+        <ListBox x:Name="LB_Formations" HorizontalAlignment="Left" Height="74" Margin="382,260,0,0" VerticalAlignment="Top" Width="245" Background="#FFEAEAEA" MouseLeftButtonUp="LB_Formations_MouseLeftButtonUp"/>
         <Grid x:Name="session" Visibility="Hidden">
             <Label x:Name="L_Sessions"  Content="Session(s) :" HorizontalAlignment="Left" Margin="289,321,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.5,0.269"/>
             <ListBox x:Name="LB_Sessions"  HorizontalAlignment="Left" Height="140" Margin="383,333,0,0" VerticalAlignment="Top" Width="83" Background="#FFEAEAEA" />
@@ -32,7 +32,7 @@
             <Label x:Name="label" Content="Du :" HorizontalAlignment="Left" Margin="477,333,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy" Content="Au :" HorizontalAlignment="Left" Margin="612,333,0,0" VerticalAlignment="Top"/>
         </Grid>
-        
+
         <Button x:Name="supprimerEmployé" Visibility="Hidden" Content="Supprimer l'employé" HorizontalAlignment="Left" Margin="53,457,0,0" VerticalAlignment="Top" Width="173" Background="#FFB60A0A" Click="supprimerEmployé_Click"/>
         <Button x:Name="editerEmployé" Visibility="Hidden" Content="Mettre à jour" HorizontalAlignment="Left" Margin="53,420,0,0" VerticalAlignment="Top" Width="173" Click="editerEmployé_Click"/>
         <Button x:Name="validerMaj" Visibility="Hidden" Content="Valider" HorizontalAlignment="Left" Margin="138,420,0,0" VerticalAlignment="Top" Width="88" Click="validerMaj_Click" FontSize="12" Background="#FF35A800"/>

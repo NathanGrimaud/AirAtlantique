@@ -27,10 +27,15 @@ namespace AirAtlantique.Pages.Formation
         {
             InitializeComponent();
             ((MainWindow)System.Windows.Application.Current.MainWindow).page_name.Text = "Ajouter une formation";
+            ShowData();
+        }
+
+        private void ShowData()
+        {
             List<Model.Metier> listeMetier = MetierDAO.ListerMétier();
             foreach (var metier in listeMetier)
             {
-                Metiers.Items.Add(metier.nom);
+                LB_Metiers.Items.Add(metier.nom);
             }
 
             foreach (var formations in FormationDAO.ListerFormations())
@@ -44,22 +49,17 @@ namespace AirAtlantique.Pages.Formation
             bool estGlobale = false;
             bool estActive = true;
 
-            if (Globale.IsChecked == true)
+            if (CB_estGlobale.IsChecked == true)
             {
                 estGlobale = true;
             }
 
-            List<string> metierChoisis = Metiers.SelectedItems.Cast<string>().ToList();
+            List<string> metierChoisis = LB_Metiers.SelectedItems.Cast<string>().ToList();
             try
             {
-                FormationDAO.AjouterFormation(Nom.Text, int.Parse(Duree.Text), Date.DisplayDate, estGlobale, estActive, metierChoisis);
-
-                //Clear all input
-                Nom.Clear();
-                Duree.Clear();
-                Date.SelectedDate = null;
-                Globale.IsChecked = false;
-                Metiers.Items.Clear();
+                FormationDAO.AjouterFormation(TB_nom.Text, TB_duree.Text, DP_Date.DisplayDate, estGlobale, estActive, metierChoisis);
+                ClearInputs();
+                ShowData();
             }
             catch
             {
@@ -73,5 +73,64 @@ namespace AirAtlantique.Pages.Formation
             Switcher.Navigate(new Home.Home());
         }
 
+        public void LB_ListeFormations_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (LB_ListeFormations.HasItems)
+            {
+                editFormation.Visibility = Visibility.Visible;
+                Model.Formation maFormation = FormationDAO.SelectFormation(LB_ListeFormations.SelectedItem.ToString());
+                TB_nom.Text = maFormation.nom;
+                TB_duree.Text = maFormation.duree;
+                DP_Date.DisplayDate = maFormation.dureeValide;
+                if (maFormation.estGlobale == true)
+                {
+                    CB_estGlobale.IsChecked = true;
+                }
+            }
+        }
+
+        private void ClearInputs()
+        {
+            //Clear all input
+            TB_nom.Clear();
+            TB_duree.Clear();
+            DP_Date.SelectedDate = null;
+            CB_estGlobale.IsChecked = false;
+            LB_Metiers.Items.Clear();
+            LB_ListeFormations.Items.Clear();
+
+        }
+
+        public void BT_majFormation_Click(object sender, RoutedEventArgs e)
+        {
+            Model.Formation maFormation = FormationDAO.SelectFormation(LB_ListeFormations.SelectedItem.ToString());
+            maFormation.nom = TB_nom.Text;
+            maFormation.duree = TB_duree.Text;
+            maFormation.dureeValide = DP_Date.DisplayDate;
+            maFormation.estActive = true;
+            if (CB_estGlobale.IsChecked == true)
+            {
+                maFormation.estGlobale = true;
+            }
+            else
+            {
+                maFormation.estGlobale = false;
+            }
+            FormationDAO.EditerFormation(maFormation);
+            ClearInputs();
+            ShowData();
+        }
+
+        private void BT_supprimer_Click(object sender, RoutedEventArgs e)
+        {
+            var item = LB_ListeFormations.SelectedItem.ToString();
+            FormationDAO.SupprimerFormation(item);
+            ClearInputs();
+        }
+
+        private void Retour_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.Navigate(new Home.Home());
+        }
     }
 }

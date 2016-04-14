@@ -9,17 +9,6 @@ namespace AirAtlantique.Pages.Home
     /// </summary>
     public partial class Home 
     {
-        public Home(Dictionary<String, Object> parameters) : base()
-        {
-            InitializeComponent();
-            ((MainWindow)System.Windows.Application.Current.MainWindow).page_name.Text = "Accueil";
-            Switcher.changeMenu(new SideMenu());
-            foreach (var item in parameters)
-            {
-                @params.Text += $"key : {item.Key}  value :  {item.Value} ";
-            }
-
-        }
 
         public Home()
         {

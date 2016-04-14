@@ -16,8 +16,8 @@
 
         <Label x:Name="L_employés" Content="Employés" HorizontalAlignment="Left" Margin="632,5,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <ListBox x:Name="LB_employés" HorizontalAlignment="Left" Height="171" Margin="556,36,0,0" SelectionMode="Multiple" VerticalAlignment="Top" Width="234"/>
-        <Button x:Name="BT_annuler" Content="Annuler" Margin="429,400,0,0" VerticalAlignment="Top" Click="annuler_Click" Background="#FF960022" HorizontalAlignment="Left" Width="88"/>
-        <Button x:Name="BT_ajouter" Content="Ajouter" Margin="577,400,0,0" VerticalAlignment="Top" Click="ajouter_Click" HorizontalAlignment="Left" Width="89"/>
+        <Button x:Name="BT_annuler" Content="Annuler" Margin="583,400,0,0" VerticalAlignment="Top" Click="annuler_Click" Background="#FFE53935" HorizontalAlignment="Left" Width="88"/>
+        <Button x:Name="BT_ajouter" Content="Ajouter" Margin="689,400,0,0" VerticalAlignment="Top" Click="ajouter_Click" HorizontalAlignment="Left" Width="89" Background="#FF42A5F5"/>
         <ComboBox x:Name="CB_listeFormations" HorizontalAlignment="Left" Margin="38,300,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="listeFormations_SelectionChanged"/>
         <Label x:Name="L_nomSession" Content="Nom de la session" HorizontalAlignment="Left" Margin="29,75,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TB_NomSession" HorizontalAlignment="Left" Height="23" Margin="159,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
