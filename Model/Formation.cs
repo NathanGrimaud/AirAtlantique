@@ -29,7 +29,5 @@ namespace AirAtlantique.Model
         public ICollection<Session> sessions { get; set; }
 
         public ICollection<Metier> metiers { get; set; }
-
-
     }
 }

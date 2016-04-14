@@ -35,6 +35,5 @@ namespace AirAtlantique.Model
         public virtual ICollection<Metier> metier { get; set; }
 
         public virtual ICollection<Session> sessions { get; set; }
-
     }
 }

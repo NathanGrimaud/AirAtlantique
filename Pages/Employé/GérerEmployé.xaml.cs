@@ -98,6 +98,7 @@ namespace AirAtlantique.Pages.Employé
             LB_Formations.Items.Clear();
             supprimerEmployé.Visibility = Visibility.Visible;
             editerEmployé.Visibility = Visibility.Visible;
+            LB_metiers_Employe.IsEnabled = false;
 
             if (LB_liste_employé.HasItems)
             {
@@ -145,6 +146,9 @@ namespace AirAtlantique.Pages.Employé
 
             EmployéDAO.EditerEmployé(EmployeSelectionne);
             validerMaj.Visibility = Visibility.Hidden;
+            annulerMaj.Visibility = Visibility.Hidden;
+            ClearEmployeItems();
+            RefreshEmployes();
         }
     }
 }

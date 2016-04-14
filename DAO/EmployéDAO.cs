@@ -89,7 +89,7 @@ namespace AirAtlantique.DAO
                     original.login = employeSelectionne.login;
                     original.password = employeSelectionne.password;
                     original.email = employeSelectionne.email;
-                    original.metier = employeSelectionne.metier;
+                    //original.metier = employeSelectionne.metier;
 
                     db.SaveChanges();
                 }
