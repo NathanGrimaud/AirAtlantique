@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AirAtlantique.Pages
+namespace AirAtlantique.Pages.Employé
 {
     /// <summary>
     /// Logique d'interaction pour employes.xaml
@@ -33,7 +33,7 @@ namespace AirAtlantique.Pages
 
         private void retour_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Navigate(new Home());
+            Switcher.Navigate(new Home.Home());
         }
 
         private void ajouterEmployé_Copy_Click(object sender, RoutedEventArgs e)

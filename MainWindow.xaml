@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AirAtlantique"
-        xmlns:pages="clr-namespace:AirAtlantique.Pages"
         xmlns:component="clr-namespace:AirAtlantique.Pages.Component"
         xmlns:Converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf" x:Class="AirAtlantique.MainWindow"
         mc:Ignorable="d"

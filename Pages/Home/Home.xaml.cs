@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace AirAtlantique.Pages
+namespace AirAtlantique.Pages.Home
 {
     /// <summary>
     /// Logique d'interaction pour Home.xaml
@@ -28,22 +28,22 @@ namespace AirAtlantique.Pages
 
         private void ajoutFormation_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Switcher.Navigate(new ajouterFormation());
+            Switcher.Navigate(new Formation.ajouterFormation());
         }
 
         private void employes_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Switcher.Navigate(new HomeEmployés());
+            Switcher.Navigate(new Employé.HomeEmployés());
         }
 
         private void ajoutSession_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Switcher.Navigate(new AjouterSession());
+            Switcher.Navigate(new Session.AjouterSession());
         }
 
         private void metiers_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Switcher.Navigate(new AjouterMetier());
+            Switcher.Navigate(new Métier.AjouterMetier());
         }
     }
 }

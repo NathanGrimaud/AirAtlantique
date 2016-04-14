@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using AirAtlantique.DAO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AirAtlantique.Pages
+namespace AirAtlantique.Pages.Formation
 {
     /// <summary>
     /// Logique d'interaction pour ajouterFormation.xaml
@@ -26,13 +27,13 @@ namespace AirAtlantique.Pages
         {
             InitializeComponent();
             ((MainWindow)System.Windows.Application.Current.MainWindow).page_name.Text = "Ajouter une formation";
-            List<Model.Metier> listeMetier = LiaisonBDD.ListerMétier();
+            List<Model.Metier> listeMetier = MetierDAO.ListerMétier();
             foreach (var metier in listeMetier)
             {
                 Metiers.Items.Add(metier.nom);
             }
 
-            foreach (var formations in LiaisonBDD.ListerFormations())
+            foreach (var formations in FormationDAO.ListerFormations())
             {
                 LB_ListeFormations.Items.Add(formations.nom);
             }
@@ -51,7 +52,7 @@ namespace AirAtlantique.Pages
             List<string> metierChoisis = Metiers.SelectedItems.Cast<string>().ToList();
             try
             {
-                LiaisonBDD.AjouterFormation(Nom.Text, int.Parse(Duree.Text), Date.DisplayDate, estGlobale, estActive, metierChoisis);
+                FormationDAO.AjouterFormation(Nom.Text, int.Parse(Duree.Text), Date.DisplayDate, estGlobale, estActive, metierChoisis);
 
                 //Clear all input
                 Nom.Clear();
@@ -69,7 +70,7 @@ namespace AirAtlantique.Pages
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Navigate(new Home());
+            Switcher.Navigate(new Home.Home());
         }
 
     }

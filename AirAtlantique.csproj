@@ -76,7 +76,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AirAtlantiqueContext.cs" />
-    <Compile Include="LiaisonBDD.cs" />
+    <Compile Include="DAO\EmployéDAO.cs" />
+    <Compile Include="DAO\FormationDAO.cs" />
+    <Compile Include="DAO\MetierDAO.cs" />
+    <Compile Include="DAO\SessionDAO.cs" />
     <Compile Include="Model\Demande.cs" />
     <Compile Include="Model\Employe.cs" />
     <Compile Include="Model\Formateur.cs" />
@@ -85,31 +88,31 @@
     <Compile Include="Model\Metier.cs" />
     <Compile Include="Model\Session.cs" />
     <Compile Include="Model\Status.cs" />
-    <Compile Include="Pages\AjouterEmployé.xaml.cs">
+    <Compile Include="Pages\Employé\AjouterEmployé.xaml.cs">
       <DependentUpon>AjouterEmployé.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AjouterFormation.xaml.cs">
+    <Compile Include="Pages\Formation\AjouterFormation.xaml.cs">
       <DependentUpon>AjouterFormation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AjouterMetier.xaml.cs">
+    <Compile Include="Pages\Métier\AjouterMetier.xaml.cs">
       <DependentUpon>AjouterMetier.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AjouterSession.xaml.cs">
+    <Compile Include="Pages\Session\AjouterSession.xaml.cs">
       <DependentUpon>AjouterSession.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Component\SideMenu.xaml.cs">
       <DependentUpon>SideMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\GérerEmployé.xaml.cs">
+    <Compile Include="Pages\Employé\GérerEmployé.xaml.cs">
       <DependentUpon>GérerEmployé.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Home.xaml.cs">
+    <Compile Include="Pages\Home\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\HomeEmployés.xaml.cs">
+    <Compile Include="Pages\Employé\HomeEmployés.xaml.cs">
       <DependentUpon>HomeEmployés.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Login.xaml.cs">
+    <Compile Include="Pages\Login\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="Switcher.cs" />
@@ -125,19 +128,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\AjouterEmployé.xaml">
+    <Page Include="Pages\Employé\AjouterEmployé.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\AjouterFormation.xaml">
+    <Page Include="Pages\Formation\AjouterFormation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\AjouterMetier.xaml">
+    <Page Include="Pages\Métier\AjouterMetier.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\AjouterSession.xaml">
+    <Page Include="Pages\Session\AjouterSession.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -145,19 +148,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\GérerEmployé.xaml">
+    <Page Include="Pages\Employé\GérerEmployé.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Home.xaml">
+    <Page Include="Pages\Home\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\HomeEmployés.xaml">
+    <Page Include="Pages\Employé\HomeEmployés.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Login.xaml">
+    <Page Include="Pages\Login\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -207,6 +210,7 @@
   <ItemGroup>
     <Resource Include="Images\logo.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

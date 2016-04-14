@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AirAtlantique.DAO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AirAtlantique.Pages
+namespace AirAtlantique.Pages.Employé
 {
     /// <summary>
     /// Logique d'interaction pour AjouterEmployé.xaml
@@ -25,7 +26,7 @@ namespace AirAtlantique.Pages
         {
             InitializeComponent();
             ((MainWindow)System.Windows.Application.Current.MainWindow).page_name.Text = "Ajouter un employé";
-            List<Metier> listeMetier = LiaisonBDD.ListerMétier();
+            List<Metier> listeMetier = MetierDAO.ListerMétier();
             foreach (var metier in listeMetier)
             {
                 lesMetiers.Items.Add(metier.nom);
@@ -43,11 +44,11 @@ namespace AirAtlantique.Pages
             //mail par défaut de l'employé (prénom.nom@airatlantique.com)
             var mail = prenomEmploye.Text.ToLower() + "." + nomEmploye.Text.ToLower() + "@airatlantique.com";
 
-            List<Metier> listeMetier = LiaisonBDD.ListerMétier();
+            List<Metier> listeMetier = MetierDAO.ListerMétier();
             List<string> metierChoisis = lesMetiers.SelectedItems.Cast<string>().ToList();
             try
             {
-                LiaisonBDD.AjouterEmployé(nomEmploye.Text, prenomEmploye.Text, mdp, login, mail, metierChoisis);
+                EmployéDAO.AjouterEmployé(nomEmploye.Text, prenomEmploye.Text, mdp, login, mail, metierChoisis);
                 //Clear all input
                 nomEmploye.Clear();
                 prenomEmploye.Clear();

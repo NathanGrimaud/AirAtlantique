@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using AirAtlantique.Model;
 using System.DirectoryServices;
 
-namespace AirAtlantique.Pages
+namespace AirAtlantique.Pages.Login
 {
 
     public partial class Login 
@@ -32,7 +32,7 @@ namespace AirAtlantique.Pages
             var args = new Dictionary<String, Object>();            
             args.Add("nom", "nom_utilisateur");
             args.Add("prenom", "prenom_utilisateur");            
-            Switcher.Navigate(new Home(args));
+            Switcher.Navigate(new Home.Home(args));
         }      
     }
 }
