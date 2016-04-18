@@ -14,6 +14,7 @@
         <TextBlock x:Name="alertExist" HorizontalAlignment="Left" Margin="340,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Foreground="#FFCB0A0A"/>
         <Button x:Name="retour" Content="Retour" HorizontalAlignment="Left" Margin="695,18,0,0" VerticalAlignment="Top" Width="95" Height="34" FontSize="12" Click="button1_Click"/>
         <Button x:Name="supprimer" Content="Supprimer" HorizontalAlignment="Left" Margin="56,395,0,0" Visibility="Hidden" VerticalAlignment="Top" Width="71" FontSize="8" Background="#FFE53935" Height="20" Click="supprimer_Click"/>
-        <Button x:Name="BT_maj" Content="Mettre à jour" Visibility="Hidden" HorizontalAlignment="Left" Margin="365,201,0,0" VerticalAlignment="Top" Width="142" Click="BT_maj_Click" Background="#FF42A5F5" />
+        <Button x:Name="BT_maj" Content="Mettre à jour" Visibility="Hidden" HorizontalAlignment="Left" Margin="430,201,0,0" VerticalAlignment="Top" Width="77" Click="BT_maj_Click" Background="#FF42A5F5" FontSize="7.333" />
+        <Button x:Name="AnnulerMaj" Content="Annuler" Visibility="Hidden" HorizontalAlignment="Left" Margin="365,201,0,0" VerticalAlignment="Top" Width="65" Background="#FFE01414" FontSize="7.333" Click="AnnulerMaj_Click" />
     </Grid>
 </UserControl>

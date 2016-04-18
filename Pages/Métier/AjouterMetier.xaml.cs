@@ -72,6 +72,7 @@ namespace AirAtlantique.Pages.Métier
         {
             supprimer.Visibility = Visibility.Visible;
             BT_maj.Visibility = Visibility.Visible;
+            AnnulerMaj.Visibility = Visibility.Visible;
             if (listeMetiers.HasItems)
             {
                 TB_ajoutMetier.Text = listeMetiers.SelectedItem.ToString();
@@ -85,6 +86,14 @@ namespace AirAtlantique.Pages.Métier
             MetierDAO.EditerMétier(metierAMaj);
             TB_ajoutMetier.Focus();
             RefreshData();
+        }
+
+        private void AnnulerMaj_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshData();
+            BT_maj.Visibility = Visibility.Hidden;
+            AnnulerMaj.Visibility = Visibility.Hidden;
+
         }
     }
 }

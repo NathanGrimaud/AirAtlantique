@@ -34,24 +34,6 @@ namespace AirAtlantique.Pages.Employé
             Switcher.Navigate(new HomeEmployés());
         }
 
-        private void LB_Formations_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            if (LB_Formations.HasItems)
-            {
-                ClearSessionItems();
-                session.Visibility = Visibility.Visible;
-                editerEmployé.Visibility = Visibility.Visible;
-                supprimerEmployé.Visibility = Visibility.Visible;
-                List<Model.Session> sessionsEmploye = SessionDAO.ListerSession(EmployéDAO.SelectUniqueEmployé(LB_liste_employé.SelectedItem.ToString()), LB_Formations.SelectedItem.ToString());
-                foreach (var item in sessionsEmploye)
-                {
-                    LB_Sessions.Items.Add(item.nom);
-                    LB_Sessions_DateDebut.Items.Add(item.dateDebut);
-                    LB_Sessions_DateFin.Items.Add(item.dateFin);
-                }
-            }
-        }
-
         private void ClearSessionItems()
         {
             LB_Sessions.Items.Clear();
@@ -84,15 +66,54 @@ namespace AirAtlantique.Pages.Employé
             TB_Prénom.IsEnabled = true;
             LB_metiers_Employe.IsEnabled = true;
             MetiersDispo.Visibility = Visibility.Visible;
+            SelectMetierDispo();
+        }
+
+        private void SelectMetierDispo()
+        {
+            //On ajoute les métiers disponibles pour l'employé
             foreach (var metier in MetierDAO.ListerMétier())
             {
-                LB_MétiersDispo.Items.Add(metier.nom);
+                foreach (var item in LB_metiers_Employe.Items)
+                {
+                    if (item.ToString() != metier.nom)
+                    {
+                        LB_MétiersDispo.Items.Add(metier.nom);
+                    }
+                }
             }
         }
 
+        public void ajoutMetier_Click(object sender, RoutedEventArgs e)
+        {
+            LB_metiers_Employe.Items.Add(LB_MétiersDispo.SelectedItem.ToString());
+            LB_MétiersDispo.Items.Clear();
 
+        }
+        private void annulerMaj_Click(object sender, RoutedEventArgs e)
+        {
+            validerMaj.Visibility = Visibility.Hidden;
+            annulerMaj.Visibility = Visibility.Hidden;
+        }
 
-        private void LB_liste_employé_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        public void validerMaj_Click(object sender, RoutedEventArgs e)
+        {
+            Model.Employe EmployeSelectionne = EmployéDAO.SelectUniqueEmployé(LB_liste_employé.SelectedItem.ToString());
+            EmployeSelectionne.nom = TB_Nom.Text;
+            EmployeSelectionne.prenom = TB_Prénom.Text;
+            EmployeSelectionne.email = TB_Prénom.Text.ToLower() + "." + TB_Nom.Text.ToLower() + "@airatlantique.com";
+            EmployeSelectionne.login = TB_Prénom.Text.ToLower() + "." + TB_Nom.Text.ToLower();
+            EmployeSelectionne.password = TB_Prénom.Text.ToLower() + "." + TB_Nom.Text.ToLower();
+            
+
+            EmployéDAO.EditerEmployé(EmployeSelectionne);
+            validerMaj.Visibility = Visibility.Hidden;
+            annulerMaj.Visibility = Visibility.Hidden;
+            ClearEmployeItems();
+            RefreshEmployes();
+        }
+
+        private void LB_liste_employé_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             LB_metiers_Employe.Items.Clear();
             LB_Formations.Items.Clear();
@@ -122,33 +143,28 @@ namespace AirAtlantique.Pages.Employé
             }
         }
 
-
-        public void ajoutMetier_Click(object sender, RoutedEventArgs e)
+        private void LB_Formations_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            LB_metiers_Employe.Items.Add(LB_MétiersDispo.SelectedItem.ToString());
-
+            if (LB_Formations.HasItems)
+            {
+                ClearSessionItems();
+                session.Visibility = Visibility.Visible;
+                editerEmployé.Visibility = Visibility.Visible;
+                supprimerEmployé.Visibility = Visibility.Visible;
+                List<Model.Session> sessionsEmploye = SessionDAO.ListerSession(EmployéDAO.SelectUniqueEmployé(LB_liste_employé.SelectedItem.ToString()), LB_Formations.SelectedItem.ToString());
+                foreach (var item in sessionsEmploye)
+                {
+                    LB_Sessions.Items.Add(item.nom);
+                    LB_Sessions_DateDebut.Items.Add(item.dateDebut);
+                    LB_Sessions_DateFin.Items.Add(item.dateFin);
+                }
+            }
         }
-        private void annulerMaj_Click(object sender, RoutedEventArgs e)
-        {
-            validerMaj.Visibility = Visibility.Hidden;
-            annulerMaj.Visibility = Visibility.Hidden;
-        }
 
-        public void validerMaj_Click(object sender, RoutedEventArgs e)
+        private void LB_metiers_Employe_SourceUpdated(object sender, System.Windows.Data.DataTransferEventArgs e)
         {
-            Model.Employe EmployeSelectionne = EmployéDAO.SelectUniqueEmployé(LB_liste_employé.SelectedItem.ToString());
-            EmployeSelectionne.nom = TB_Nom.Text;
-            EmployeSelectionne.prenom = TB_Prénom.Text;
-            EmployeSelectionne.email = TB_Prénom.Text.ToLower() + "." + TB_Nom.Text.ToLower() + "@airatlantique.com";
-            EmployeSelectionne.login = TB_Prénom.Text.ToLower() + "." + TB_Nom.Text.ToLower();
-            EmployeSelectionne.password = TB_Prénom.Text.ToLower() + "." + TB_Nom.Text.ToLower();
-            
-
-            EmployéDAO.EditerEmployé(EmployeSelectionne);
-            validerMaj.Visibility = Visibility.Hidden;
-            annulerMaj.Visibility = Visibility.Hidden;
-            ClearEmployeItems();
-            RefreshEmployes();
+            //Une fois un métier ajouté, on recharge la listbox des métiers disponibles
+            SelectMetierDispo();
         }
     }
 }

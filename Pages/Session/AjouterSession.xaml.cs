@@ -81,5 +81,10 @@ namespace AirAtlantique.Pages.Session
             SessionDAO.AjouterSession(TB_NomSession.Text, DP_date_debut.SelectedDate.Value, DP_date_fin.SelectedDate.Value, CB_listeFormations.Text, employé);
             RefreshData();
         }
+
+        private void retour_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.Navigate(new Home.Home());
+        }
     }
 }
