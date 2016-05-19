@@ -58,19 +58,12 @@ namespace AirAtlantique.DAO
             }
         }
 
-        public static void SupprimerMétier(string nom)
+        public static void SupprimerMétier(Model.Metier métier)
         {
-            Metier metierToDelete;
-            using (var context = new AirAtlantiqueContext())
+            using (var db = new AirAtlantiqueContext())
             {
-                metierToDelete = (from m in context.metiers
-                                  where m.nom == nom
-                                  select m).FirstOrDefault<Metier>();
-            }
-            using (var newContext = new AirAtlantiqueContext())
-            {
-                newContext.Entry(metierToDelete).State = EntityState.Deleted;
-                newContext.SaveChanges();
+                db.metiers.Remove(db.metiers.Find(métier.id));
+                db.SaveChanges();
             }
         }
 
@@ -78,7 +71,6 @@ namespace AirAtlantique.DAO
         {
             using (var db = new AirAtlantiqueContext())
             {
-
                 Metier metierEmploye = (from e in db.employes
                                         where e.nom == employeSelectionne.nom
                                         where e.prenom == employeSelectionne.prenom

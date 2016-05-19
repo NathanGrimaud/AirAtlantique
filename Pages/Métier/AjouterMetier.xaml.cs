@@ -38,6 +38,7 @@ namespace AirAtlantique.Pages.Métier
             alertEmpty.Text = String.Empty;
             alertExist.Text = String.Empty;
             BT_maj.Visibility = Visibility.Hidden;
+            AnnulerMaj.Visibility = Visibility.Hidden;
             TB_ajoutMetier.Clear();
         }
 
@@ -63,9 +64,16 @@ namespace AirAtlantique.Pages.Métier
 
         private void supprimer_Click(object sender, RoutedEventArgs e)
         {
-            var item = listeMetiers.SelectedItem.ToString();
-            MetierDAO.SupprimerMétier(item);
-            RefreshData();
+            try
+            {
+                Model.Metier métier = MetierDAO.SelectMetier(listeMetiers.SelectedItem.ToString());
+                MetierDAO.SupprimerMétier(métier);
+                RefreshData();
+            }
+            catch
+            {
+                listeMetiers.Items.Add("Le métier ne peut pas être supprimé, il est attribué à un employé");
+            }
         }
 
         private void listeMetiers_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -93,7 +101,6 @@ namespace AirAtlantique.Pages.Métier
             RefreshData();
             BT_maj.Visibility = Visibility.Hidden;
             AnnulerMaj.Visibility = Visibility.Hidden;
-
         }
     }
 }

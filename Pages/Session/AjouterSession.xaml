@@ -7,22 +7,25 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="500" 
 >
     <Grid>
-        <Label x:Name="ajoutSession" Content="Ajouter une session&#xD;&#xA;" HorizontalAlignment="Left" Margin="38,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <DatePicker x:Name="DP_date_debut" HorizontalAlignment="Left" Margin="159,127,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="DP_date_fin" HorizontalAlignment="Left" Margin="159,199,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="L_date_debut" Content="Date de début&#xD;&#xA;" HorizontalAlignment="Left" Margin="29,134,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="L_date_fin" Content="Date de fin&#xA;" HorizontalAlignment="Left" Margin="29,199,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="L_formation_concernée" Content="Formation concernée" HorizontalAlignment="Left" Margin="38,257,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="ajoutSession" Content="Liste des sessions&#xA;" HorizontalAlignment="Left" Margin="17,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <DatePicker x:Name="DP_date_debut" HorizontalAlignment="Left" Margin="357,127,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="DP_date_fin" HorizontalAlignment="Left" Margin="357,199,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="L_date_debut" Content="Date de début&#xD;&#xA;" HorizontalAlignment="Left" Margin="227,134,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="L_date_fin" Content="Date de fin&#xA;" HorizontalAlignment="Left" Margin="227,199,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="L_formation_concernée" Content="Formation concernée" HorizontalAlignment="Left" Margin="236,257,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 
         <Label x:Name="L_employés" Content="Employés" HorizontalAlignment="Left" Margin="537,5,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <ListBox x:Name="LB_employés" HorizontalAlignment="Left" Height="171" Margin="449,36,0,0" SelectionMode="Multiple" VerticalAlignment="Top" Width="234"/>
         <Button x:Name="BT_annuler" Content="Annuler" Margin="583,400,0,0" VerticalAlignment="Top" Click="annuler_Click" Background="#FFE53935" HorizontalAlignment="Left" Width="88"/>
         <Button x:Name="BT_ajouter" Content="Ajouter" Margin="689,400,0,0" VerticalAlignment="Top" Click="ajouter_Click" HorizontalAlignment="Left" Width="89" Background="#FF42A5F5"/>
-        <ComboBox x:Name="CB_listeFormations" HorizontalAlignment="Left" Margin="38,300,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="listeFormations_SelectionChanged"/>
-        <Label x:Name="L_nomSession" Content="Nom de la session" HorizontalAlignment="Left" Margin="29,75,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TB_NomSession" HorizontalAlignment="Left" Height="23" Margin="159,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="CB_listeFormations" HorizontalAlignment="Left" Margin="236,300,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="listeFormations_SelectionChanged"/>
+        <Label x:Name="L_nomSession" Content="Nom de la session" HorizontalAlignment="Left" Margin="227,75,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TB_NomSession" HorizontalAlignment="Left" Height="23" Margin="357,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBlock x:Name="TB_Alert" HorizontalAlignment="Left" Margin="529,357,0,0" TextWrapping="Wrap" Text="" Visibility="Hidden" VerticalAlignment="Top"/>
         <Button x:Name="retour" Content="Retour" Margin="709,9,8,0" VerticalAlignment="Top"  Width="83" Click="retour_Click" />
+        <ListBox x:Name="LB_session" HorizontalAlignment="Left" Height="290" Margin="17,52,0,0" VerticalAlignment="Top" Width="119" SelectionChanged="LB_session_SelectionChanged"/>
+        <Button x:Name="BT_MAJ" Visibility="Hidden" Content="MàJ" Margin="689,400,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="89" Background="#FF42A5F5" Click="BT_MAJ_Click"/>
+        <Button x:Name="BT_SUPPR" Visibility="Hidden" Content="Supprimer" Margin="47,400,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="89" Background="#FFE53935" FontSize="12" Click="BT_SUPPR_Click" />
 
     </Grid>
 </UserControl>

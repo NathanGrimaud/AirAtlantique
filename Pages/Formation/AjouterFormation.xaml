@@ -7,16 +7,16 @@
              mc:Ignorable="d" Height="542.5" Width="1078">
     <Grid>
         <Label x:Name="NomFormation" Content="Nom :" Margin="308,28,0,0" HorizontalAlignment="Left" Width="123" Height="38" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
-        <TextBox x:Name="TB_nom" Margin="480,28,0,0" TextWrapping="Wrap" Height="33" VerticalAlignment="Top" HorizontalAlignment="Left" Width="134" FontSize="14.667"/>
+        <TextBox x:Name="TB_nom" Margin="480,28,0,0" TextWrapping="Wrap" Height="33" VerticalAlignment="Top" HorizontalAlignment="Left" Width="146" FontSize="14.667"/>
 
         <Label x:Name="DureeFormation" Content="Durée :" Margin="308,66,647,440" FontSize="18.667" FontWeight="Bold"/>
-        <TextBox x:Name="TB_duree" Margin="480,68,0,0" TextWrapping="Wrap" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="134" FontSize="14.667"/>
+        <TextBox x:Name="TB_duree" Margin="480,68,0,0" TextWrapping="Wrap" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="146" FontSize="14.667"/>
 
         <Label x:Name="DateExpiration" Content="Date d'expiration :" HorizontalAlignment="Left" Margin="308,102,0,0" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
-        <DatePicker x:Name="DP_Date" HorizontalAlignment="Left" DisplayDate="{Binding DateTime.Now}" Margin="514,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.478,0.12" Width="100" Height="25" FontSize="16"/>
+        <DatePicker x:Name="DP_Date" HorizontalAlignment="Left" DisplayDate="{Binding DateTime.Now}" Margin="514,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.478,0.12" Width="112" Height="25" FontSize="16"/>
 
         <Label x:Name="estGlobale" Content="Formation globale :" HorizontalAlignment="Left" Margin="308,142,0,0" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
-        <CheckBox x:Name="CB_estGlobale" Content="" HorizontalAlignment="Left" Margin="600,150,0,0" VerticalAlignment="Top" Height="27" Width="26"/>
+        <CheckBox x:Name="CB_estGlobale" Content="" HorizontalAlignment="Left" Margin="610,150,0,0" VerticalAlignment="Top" Height="27" Width="26"/>
 
         <Label x:Name="MetiersConcernes" Content="Métiers concernés :" HorizontalAlignment="Left" Margin="308,182,0,0" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
         <ListBox x:Name="LB_Metiers" HorizontalAlignment="Left" Height="170" Margin="308,238,0,0" VerticalAlignment="Top" Width="354" SelectionMode="Multiple"></ListBox>

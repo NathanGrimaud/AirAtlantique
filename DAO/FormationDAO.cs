@@ -63,26 +63,26 @@ namespace AirAtlantique.DAO
                     returnFormation.Add(item.formation);
                 }
 
-                    //Ne pas envoyer 2 fois la même formation
-                    //foreach (var item in sessionEmploye)
-                    //{
-                    //    if (returnFormation.Count() == 0)
-                    //    {
-                    //        returnFormation.Add(item.formation);
-                    //    }
+                //Ne pas envoyer 2 fois la même formation
+                //foreach (var item in sessionEmploye)
+                //{
+                //    if (returnFormation.Count() == 0)
+                //    {
+                //        returnFormation.Add(item.formation);
+                //    }
 
-                    //    else if (returnFormation.Count() != 0)
-                    //    {
-                    //        foreach (var nomF in returnFormation)
-                    //        {
-                    //            if (item.nom != nomF.nom)
-                    //            {
-                    //                returnFormation.Add(item.formation);
-                    //            }
-                    //        }
-                    //    }
-                    //}
-                    return returnFormation;
+                //    else if (returnFormation.Count() != 0)
+                //    {
+                //        foreach (var nomF in returnFormation)
+                //        {
+                //            if (item.nom != nomF.nom)
+                //            {
+                //                returnFormation.Add(item.formation);
+                //            }
+                //        }
+                //    }
+                //}
+                return returnFormation;
             }
         }
 
@@ -91,8 +91,8 @@ namespace AirAtlantique.DAO
             using (var db = new AirAtlantiqueContext())
             {
                 Formation formation = (from f in db.formations
-                                 where formationSelectionne == f.nom
-                                 select f).First();
+                                       where formationSelectionne == f.nom
+                                       select f).First();
                 return formation;
             }
         }
@@ -124,8 +124,8 @@ namespace AirAtlantique.DAO
             using (var context = new AirAtlantiqueContext())
             {
                 formationToDelete = (from f in context.formations
-                                  where f.nom == nom
-                                  select f).FirstOrDefault<Formation>();
+                                     where f.nom == nom
+                                     select f).FirstOrDefault<Formation>();
             }
             using (var newContext = new AirAtlantiqueContext())
             {
@@ -134,7 +134,16 @@ namespace AirAtlantique.DAO
             }
         }
 
+        public static Formation SessionFormation(Session session)
+        {
+            using (var db = new AirAtlantiqueContext())
+            {
+                Formation formation = (from s in db.sessions
+                                       where s.nom == session.nom
+                                       select s.formation).First();
+                return formation;
+            }
+        }
+
     }
-
-
 }

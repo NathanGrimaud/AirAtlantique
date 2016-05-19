@@ -98,17 +98,10 @@ namespace AirAtlantique.DAO
 
         public static void SupprimerEmployé(Employe employeSelectionne)
         {
-            Employe employeToDelete;
             using (var db = new AirAtlantiqueContext())
             {
-                employeToDelete = (from e in db.employes
-                                   where e.id == employeSelectionne.id
-                                   select e).First();
-            }
-            using (var newDb = new AirAtlantiqueContext())
-            {
-                newDb.Entry(employeToDelete).State = System.Data.Entity.EntityState.Deleted;
-                newDb.SaveChanges();
+                db.employes.Remove(db.employes.Find(employeSelectionne.id));
+                db.SaveChanges();
             }
         }
     }

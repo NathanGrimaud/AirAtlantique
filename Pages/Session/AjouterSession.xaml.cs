@@ -26,7 +26,7 @@ namespace AirAtlantique.Pages.Session
             InitializeComponent();
             ((MainWindow)System.Windows.Application.Current.MainWindow).page_name.Text = "Ajouter une session";
             ShowData();
-
+            ShowSession();
         }
 
         //On affiche les formations disponibles
@@ -41,6 +41,7 @@ namespace AirAtlantique.Pages.Session
         private void RefreshData()
         {
             TB_NomSession.Clear();
+            LB_session.Items.Clear();
             DP_date_debut.SelectedDate = null;
             DP_date_fin.SelectedDate = null;
             LB_employés.SelectedItems.Clear();
@@ -51,6 +52,7 @@ namespace AirAtlantique.Pages.Session
         {
             if (CB_listeFormations != null)
             {
+                LB_employés.Items.Clear();
                 SelectEmploye(CB_listeFormations.SelectedItem.ToString());
             }
 
@@ -78,13 +80,92 @@ namespace AirAtlantique.Pages.Session
             {
                 employé.Add(item.ToString());
             }
-            SessionDAO.AjouterSession(TB_NomSession.Text, DP_date_debut.SelectedDate.Value, DP_date_fin.SelectedDate.Value, CB_listeFormations.Text, employé);
+
+            if (employé.Count == 0)
+            {
+                TB_Alert.Text = "Veuillez renseigner tout les champs";
+                TB_Alert.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                try
+                {
+                    SessionDAO.AjouterSession(TB_NomSession.Text, DP_date_debut.SelectedDate.Value, DP_date_fin.SelectedDate.Value, CB_listeFormations.Text, employé);
+
+                    TB_Alert.Visibility = Visibility.Hidden;
+                    TB_NomSession.Clear();
+                    DP_date_debut.SelectedDate = null;
+                    DP_date_fin.SelectedDate = null;
+                    CB_listeFormations.SelectedIndex = -1;
+                    LB_employés.Items.Clear();
+                }
+                catch
+                {
+                    TB_Alert.Text = "Veuillez renseigner tous les champs";
+                    TB_Alert.Visibility = Visibility.Visible;
+                }
+            }
+
             RefreshData();
+            ShowSession();
         }
 
         private void retour_Click(object sender, RoutedEventArgs e)
         {
             Switcher.Navigate(new Home.Home());
+        }
+
+        private void ShowSession ()
+        {
+            List<Model.Session> sessions = SessionDAO.ListerAllSession();
+            foreach (var item in sessions)
+            {
+                LB_session.Items.Add(item.nom);
+            }
+        }
+
+        private void LB_session_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (LB_session.HasItems)
+            {
+                BT_MAJ.Visibility = Visibility.Visible;
+                BT_SUPPR.Visibility = Visibility.Visible;
+                Model.Session session = SessionDAO.SelectSession(LB_session.SelectedItem.ToString());
+                TB_NomSession.Text = session.nom;
+                DP_date_debut.SelectedDate = session.dateDebut;
+                DP_date_fin.SelectedDate = session.dateFin;
+
+                CB_listeFormations.Items.Add(SessionDAO.SelectSession(LB_session.SelectedItem.ToString()));
+            }
+        }
+
+
+        private void BTDelete_Click(object sender, RoutedEventArgs e)
+        {
+            Model.Session sessionClick = SessionDAO.SelectUniqueSession(LB_session.SelectedItem.ToString());
+            SessionDAO.SupprimerSession(sessionClick);
+            BT_MAJ.Visibility = Visibility.Hidden;
+            BT_SUPPR.Visibility = Visibility.Hidden;
+            BT_ajouter.Visibility = Visibility.Visible;
+            BT_annuler.Visibility = Visibility.Hidden;
+            RefreshData();
+        }
+
+
+        private void BT_MAJ_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void BT_SUPPR_Click(object sender, RoutedEventArgs e)
+        {
+            Model.Session sessionClick = SessionDAO.SelectUniqueSession(LB_session.SelectedItem.ToString());
+            SessionDAO.SupprimerSession(sessionClick);
+            BT_MAJ.Visibility = Visibility.Hidden;
+            BT_SUPPR.Visibility = Visibility.Hidden;
+            BT_ajouter.Visibility = Visibility.Visible;
+            BT_annuler.Visibility = Visibility.Hidden;
+            RefreshData();
         }
     }
 }

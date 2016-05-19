@@ -81,7 +81,7 @@ namespace AirAtlantique.Pages.Formation
                 Model.Formation maFormation = FormationDAO.SelectFormation(LB_ListeFormations.SelectedItem.ToString());
                 TB_nom.Text = maFormation.nom;
                 TB_duree.Text = maFormation.duree;
-                DP_Date.DisplayDate = maFormation.dureeValide;
+                DP_Date.SelectedDate = maFormation.dureeValide;
                 if (maFormation.estGlobale == true)
                 {
                     CB_estGlobale.IsChecked = true;
@@ -98,7 +98,6 @@ namespace AirAtlantique.Pages.Formation
             CB_estGlobale.IsChecked = false;
             LB_Metiers.Items.Clear();
             LB_ListeFormations.Items.Clear();
-
         }
 
         public void BT_majFormation_Click(object sender, RoutedEventArgs e)
@@ -126,6 +125,7 @@ namespace AirAtlantique.Pages.Formation
             var item = LB_ListeFormations.SelectedItem.ToString();
             FormationDAO.SupprimerFormation(item);
             ClearInputs();
+            ShowData();
         }
 
         private void Retour_Click(object sender, RoutedEventArgs e)

@@ -56,6 +56,7 @@ namespace AirAtlantique.Pages.Employé
 
             EmployéDAO.SupprimerEmployé(clicEmploye);
             ClearEmployeItems();
+            RefreshEmployes();
         }
 
         public void editerEmployé_Click(object sender, RoutedEventArgs e)
@@ -90,6 +91,7 @@ namespace AirAtlantique.Pages.Employé
             LB_MétiersDispo.Items.Clear();
 
         }
+
         private void annulerMaj_Click(object sender, RoutedEventArgs e)
         {
             validerMaj.Visibility = Visibility.Hidden;
@@ -104,7 +106,7 @@ namespace AirAtlantique.Pages.Employé
             EmployeSelectionne.email = TB_Prénom.Text.ToLower() + "." + TB_Nom.Text.ToLower() + "@airatlantique.com";
             EmployeSelectionne.login = TB_Prénom.Text.ToLower() + "." + TB_Nom.Text.ToLower();
             EmployeSelectionne.password = TB_Prénom.Text.ToLower() + "." + TB_Nom.Text.ToLower();
-            
+
 
             EmployéDAO.EditerEmployé(EmployeSelectionne);
             validerMaj.Visibility = Visibility.Hidden;
@@ -127,9 +129,15 @@ namespace AirAtlantique.Pages.Employé
                 TB_Nom.Text = clicEmploye.nom;
                 TB_Prénom.Text = clicEmploye.prenom;
 
-
-                Model.Metier metiers = MetierDAO.SelectMetierEmploye(clicEmploye);
-                LB_metiers_Employe.Items.Add(metiers.nom);
+                try
+                {
+                    Model.Metier metiers = MetierDAO.SelectMetierEmploye(clicEmploye);
+                    LB_metiers_Employe.Items.Add(metiers.nom);
+                }
+                catch
+                {
+                    LB_metiers_Employe.Items.Add("L'employé n'a pas de métier !");
+                }
 
                 List<Model.Formation> formations = FormationDAO.SelectFormationEmploye(clicEmploye);
                 if (formations.Count == 0)

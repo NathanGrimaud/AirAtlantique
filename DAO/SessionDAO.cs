@@ -55,5 +55,63 @@ namespace AirAtlantique.DAO
             }
         }
 
+        public static List<Session> ListerAllSession()
+        {
+            using (var db = new AirAtlantiqueContext())
+            {
+                List<Session> lesSessions = (from s in db.sessions
+                                             select s).ToList();
+                return lesSessions;
+            }
+        }
+
+        public static Session SelectUniqueSession(string nomSession)
+        {
+            using (var db = new AirAtlantiqueContext())
+            {
+                Session session = (from s in db.sessions
+                                   where s.nom == nomSession
+                                   select s).First();
+                return session;
+            }
+        }
+
+        //public static void EditerSession(Session session, string nom, string prenom, string mail, Metier metier)
+        //{
+        //    using (var db = new AirAtlantiqueContext())
+        //    {
+        //        var employeToChange = db.employes.Find(Employe.ID);
+        //        Metier metierToChange = db.metiers.Find(metier.ID);
+        //        if (employeToChange != null)
+        //        {
+        //            employeToChange.Nom = nom;
+        //            employeToChange.Prenom = prenom;
+        //            employeToChange.mail = mail;
+        //            employeToChange.Metier = metierToChange;
+        //            db.SaveChanges();
+        //        }
+        //    }
+        //}
+
+        public static void SupprimerSession(Session sessionDelete)
+        {
+            using (var db = new AirAtlantiqueContext())
+            {
+                db.sessions.Remove(db.sessions.Find(sessionDelete.id));
+                db.SaveChanges();
+            }
+        }
+
+        public static Session SelectSession(string sessionSelectionne)
+        {
+            using (var db = new AirAtlantiqueContext())
+            {
+                Session session = (from s in db.sessions
+                                   where sessionSelectionne == s.nom
+                                   select s).First();
+                return session;
+            }
+        }
+
     }
 }
