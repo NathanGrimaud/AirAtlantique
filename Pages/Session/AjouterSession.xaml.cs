@@ -50,9 +50,9 @@ namespace AirAtlantique.Pages.Session
 
         private void listeFormations_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            LB_employés.Items.Clear();
             if (CB_listeFormations != null)
             {
-                LB_employés.Items.Clear();
                 SelectEmploye(CB_listeFormations.SelectedItem.ToString());
             }
 
@@ -69,7 +69,7 @@ namespace AirAtlantique.Pages.Session
 
         private void annuler_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Navigate(new Home.Home());
+            Switcher.Navigate(new Session.AjouterSession());
         }
 
         private void ajouter_Click(object sender, RoutedEventArgs e)
@@ -135,7 +135,13 @@ namespace AirAtlantique.Pages.Session
                 DP_date_debut.SelectedDate = session.dateDebut;
                 DP_date_fin.SelectedDate = session.dateFin;
 
-                CB_listeFormations.Items.Add(SessionDAO.SelectSession(LB_session.SelectedItem.ToString()));
+                List<Model.Formation> formationClick = FormationDAO.ListerFormations();
+                foreach (var item in formationClick)
+                {
+                    CB_listeFormations.Items.Add(item.nom);
+                }
+                Model.Formation formationSession = FormationDAO.SelectFormationSession(session);
+                CB_listeFormations.SelectedItem = formationSession.nom;
             }
         }
 

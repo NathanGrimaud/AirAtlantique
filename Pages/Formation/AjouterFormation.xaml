@@ -24,7 +24,7 @@
         <Button x:Name="Cancel" Content="Annuler" Margin="779,470,0,30" Height="42" FontSize="16" Click="Cancel_Click" Background="#FFE53935" VerticalAlignment="Center" HorizontalAlignment="Left" Width="106"/>
         <Button x:Name="Add" Content="Ajouter" Margin="910,442,0,0" Height="40" FontSize="16" Click="Add_Click" Background="#FF42A5F5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="96"/>
         <Label x:Name="Formations" Content="Formation existantes" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <ListBox x:Name="LB_ListeFormations" HorizontalAlignment="Left" Height="275" Margin="23,41,0,0" VerticalAlignment="Top" Width="152" MouseLeftButtonUp="LB_ListeFormations_MouseLeftButtonUp" />
+        <ListBox x:Name="LB_ListeFormations" HorizontalAlignment="Left" Height="275" Margin="23,41,0,0" VerticalAlignment="Top" Width="152" SelectionChanged="LB_ListeFormations_SelectionChanged"  />
         <TextBlock x:Name="TB_Alert" HorizontalAlignment="Left" Margin="841,432,0,0" TextWrapping="Wrap" Text="" Visibility="Hidden" VerticalAlignment="Top"/>
         <Grid x:Name="editFormation" Visibility="Hidden">
             <Button x:Name="BT_majFormation" Content="Mettre à jour" HorizontalAlignment="Left" Margin="59,352,0,0" VerticalAlignment="Top" Width="116" Click="BT_majFormation_Click"/>

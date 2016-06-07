@@ -87,8 +87,11 @@ namespace AirAtlantique.Pages.Employé
 
         public void ajoutMetier_Click(object sender, RoutedEventArgs e)
         {
-            LB_metiers_Employe.Items.Add(LB_MétiersDispo.SelectedItem.ToString());
-            LB_MétiersDispo.Items.Clear();
+            if (LB_MétiersDispo.Items.Count > 0)
+            {
+                LB_metiers_Employe.Items.Add(LB_MétiersDispo.SelectedItem.ToString());
+                LB_MétiersDispo.Items.Clear();
+            }
 
         }
 
@@ -96,6 +99,7 @@ namespace AirAtlantique.Pages.Employé
         {
             validerMaj.Visibility = Visibility.Hidden;
             annulerMaj.Visibility = Visibility.Hidden;
+            Switcher.Navigate(new Employé.GérerEmployé());
         }
 
         public void validerMaj_Click(object sender, RoutedEventArgs e)
@@ -107,6 +111,10 @@ namespace AirAtlantique.Pages.Employé
             EmployeSelectionne.login = TB_Prénom.Text.ToLower() + "." + TB_Nom.Text.ToLower();
             EmployeSelectionne.password = TB_Prénom.Text.ToLower() + "." + TB_Nom.Text.ToLower();
 
+            foreach (var metier in LB_metiers_Employe.Items)
+            {
+
+            }
 
             EmployéDAO.EditerEmployé(EmployeSelectionne);
             validerMaj.Visibility = Visibility.Hidden;

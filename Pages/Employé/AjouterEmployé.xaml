@@ -15,7 +15,7 @@
         <Button x:Name="ajouterEmploye" Content="Ajouter" Margin="686,399,31,0" VerticalAlignment="Top" Click="ajouterEmploye_Click"  Width="83" Background="#FF42A5F5"/>
         <Button x:Name="cancel" Content="Annuler" Margin="578,399,139,0" VerticalAlignment="Top" Click="cancel_Click"  Width="83" Background="#FFE53935"/>
         <Label x:Name="metier" Content="Métier(s)" HorizontalAlignment="Left" Margin="40,167,0,0" VerticalAlignment="Top" FontSize="18.667"/>
-        <ListBox x:Name="lesMetiers" HorizontalAlignment="Left" Height="100" SelectionMode="Multiple" Margin="142,193,0,0" VerticalAlignment="Top" Width="144" FontSize="16"/>
+        <ListBox x:Name="lesMetiers" HorizontalAlignment="Left" Height="143" SelectionMode="Multiple" Margin="142,193,0,0" VerticalAlignment="Top" Width="183" FontSize="16"/>
         <Button x:Name="retour" Content="Retour" Margin="686,22,31,0" VerticalAlignment="Top"  Width="83" Click="retour_Click"/>
         <TextBlock x:Name="TB_Alert" HorizontalAlignment="Left" Margin="701,436,0,0"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="#FFB60A0A"/>
     </Grid>

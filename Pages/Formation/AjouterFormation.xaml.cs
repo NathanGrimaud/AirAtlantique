@@ -48,13 +48,14 @@ namespace AirAtlantique.Pages.Formation
         {
             bool estGlobale = false;
             bool estActive = true;
+            List<string> metierChoisis = LB_Metiers.SelectedItems.Cast<string>().ToList();
 
             if (CB_estGlobale.IsChecked == true)
             {
                 estGlobale = true;
             }
 
-            List<string> metierChoisis = LB_Metiers.SelectedItems.Cast<string>().ToList();
+
             try
             {
                 FormationDAO.AjouterFormation(TB_nom.Text, TB_duree.Text, DP_Date.DisplayDate, estGlobale, estActive, metierChoisis);
@@ -70,24 +71,9 @@ namespace AirAtlantique.Pages.Formation
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Navigate(new Home.Home());
+            Switcher.Navigate(new Formation.ajouterFormation());
         }
 
-        public void LB_ListeFormations_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            if (LB_ListeFormations.HasItems)
-            {
-                editFormation.Visibility = Visibility.Visible;
-                Model.Formation maFormation = FormationDAO.SelectFormation(LB_ListeFormations.SelectedItem.ToString());
-                TB_nom.Text = maFormation.nom;
-                TB_duree.Text = maFormation.duree;
-                DP_Date.SelectedDate = maFormation.dureeValide;
-                if (maFormation.estGlobale == true)
-                {
-                    CB_estGlobale.IsChecked = true;
-                }
-            }
-        }
 
         private void ClearInputs()
         {
@@ -102,22 +88,24 @@ namespace AirAtlantique.Pages.Formation
 
         public void BT_majFormation_Click(object sender, RoutedEventArgs e)
         {
-            Model.Formation maFormation = FormationDAO.SelectFormation(LB_ListeFormations.SelectedItem.ToString());
-            maFormation.nom = TB_nom.Text;
-            maFormation.duree = TB_duree.Text;
-            maFormation.dureeValide = DP_Date.DisplayDate;
-            maFormation.estActive = true;
-            if (CB_estGlobale.IsChecked == true)
-            {
-                maFormation.estGlobale = true;
-            }
-            else
-            {
-                maFormation.estGlobale = false;
-            }
-            FormationDAO.EditerFormation(maFormation);
-            ClearInputs();
-            ShowData();
+            //if (LB_ListeFormations.SelectedItem.Equals(1))
+            //{
+                Model.Formation maFormation = FormationDAO.SelectFormation(LB_ListeFormations.SelectedItem.ToString());
+                maFormation.nom = TB_nom.Text;
+                maFormation.duree = TB_duree.Text;
+                maFormation.dureeValide = DP_Date.DisplayDate;
+                maFormation.estActive = true;
+                bool obligatoire = false;
+                if (CB_estGlobale.IsChecked == true)
+                {
+                    obligatoire = true;
+                }
+                maFormation.estGlobale = obligatoire;
+                FormationDAO.EditerFormation(maFormation);
+                ClearInputs();
+                ShowData();
+            //}
+
         }
 
         private void BT_supprimer_Click(object sender, RoutedEventArgs e)
@@ -131,6 +119,22 @@ namespace AirAtlantique.Pages.Formation
         private void Retour_Click(object sender, RoutedEventArgs e)
         {
             Switcher.Navigate(new Home.Home());
+        }
+
+        private void LB_ListeFormations_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (LB_ListeFormations.HasItems)
+            {
+                editFormation.Visibility = Visibility.Visible;
+                Model.Formation maFormation = FormationDAO.SelectFormation(LB_ListeFormations.SelectedItem.ToString());
+                TB_nom.Text = maFormation.nom;
+                TB_duree.Text = maFormation.duree;
+                DP_Date.SelectedDate = maFormation.dureeValide;
+                if (maFormation.estGlobale == true)
+                {
+                    CB_estGlobale.IsChecked = true;
+                }
+            }
         }
     }
 }

@@ -80,7 +80,7 @@ namespace AirAtlantique.DAO
         //{
         //    using (var db = new AirAtlantiqueContext())
         //    {
-        //        var employeToChange = db.employes.Find(Employe.ID);
+        //        var employeToChange = db.employes.Find(employes.id);
         //        Metier metierToChange = db.metiers.Find(metier.ID);
         //        if (employeToChange != null)
         //        {

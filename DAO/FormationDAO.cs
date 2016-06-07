@@ -97,6 +97,17 @@ namespace AirAtlantique.DAO
             }
         }
 
+        public static Formation SelectFormationSession(Session sessionSelectionne)
+        {
+            using (var db = new AirAtlantiqueContext())
+            {
+                Formation formation = (from s in db.sessions
+                                       where s.nom == sessionSelectionne.nom
+                                       select s.formation).First();
+                return formation;
+            }
+        }
+
         public static void EditerFormation(Formation formation)
         {
             using (var db = new AirAtlantiqueContext())
