@@ -10,11 +10,11 @@
         <TextBox x:Name="TB_nom" Margin="480,28,0,0" TextWrapping="Wrap" Height="33" VerticalAlignment="Top" HorizontalAlignment="Left" Width="146" FontSize="14.667"/>
 
         <Label x:Name="DureeFormation" Content="Durée :" Margin="308,66,647,440" FontSize="18.667" FontWeight="Bold"/>
-        <TextBox x:Name="TB_duree" Margin="480,68,0,0" TextWrapping="Wrap" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="146" FontSize="14.667"/>
+        <TextBox x:Name="TB_duree" Margin="480,73,0,0" TextWrapping="Wrap" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="146" FontSize="14.667"/>
 
-        <Label x:Name="DateExpiration" Content="Date d'expiration :" HorizontalAlignment="Left" Margin="308,102,0,0" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
-        <DatePicker x:Name="DP_Date" HorizontalAlignment="Left" DisplayDate="{Binding DateTime.Now}" Margin="514,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.478,0.12" Width="112" Height="25" FontSize="16"/>
-
+        <Label x:Name="DureeValidite" Content="Durée de validité :" HorizontalAlignment="Left" Margin="308,102,0,0" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
+        <TextBox x:Name="TB_dureeVal" Margin="482,108,0,0" TextWrapping="Wrap" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="146" FontSize="14.667"/>
+        
         <Label x:Name="estGlobale" Content="Formation globale :" HorizontalAlignment="Left" Margin="308,142,0,0" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
         <CheckBox x:Name="CB_estGlobale" Content="" HorizontalAlignment="Left" Margin="610,150,0,0" VerticalAlignment="Top" Height="27" Width="26"/>
 
@@ -31,5 +31,6 @@
             <Button x:Name="BT_supprimer" Content="Supprimer" HorizontalAlignment="Left" Margin="59,411,0,0" VerticalAlignment="Top" Width="116" Click="BT_supprimer_Click"/>
         </Grid>
         <Button x:Name="Retour" Content="Retour" HorizontalAlignment="Left" Margin="994,15,0,0" VerticalAlignment="Top" Width="74" Click="Retour_Click"/>
+        
     </Grid>
 </UserControl>

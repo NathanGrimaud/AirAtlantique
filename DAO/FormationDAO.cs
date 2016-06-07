@@ -10,7 +10,7 @@ namespace AirAtlantique.DAO
 {
     class FormationDAO
     {
-        public static void AjouterFormation(string nom, string duree, DateTime dureeValide, bool estGlobale, bool estActive, List<string> métierChoisis)
+        public static void AjouterFormation(string nom, string duree, string dureeValide, bool estGlobale, bool estActive, List<string> métierChoisis)
         {
             using (var db = new AirAtlantiqueContext())
             {

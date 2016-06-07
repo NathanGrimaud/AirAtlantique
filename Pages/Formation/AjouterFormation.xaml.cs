@@ -58,7 +58,7 @@ namespace AirAtlantique.Pages.Formation
 
             try
             {
-                FormationDAO.AjouterFormation(TB_nom.Text, TB_duree.Text, DP_Date.DisplayDate, estGlobale, estActive, metierChoisis);
+                FormationDAO.AjouterFormation(TB_nom.Text, TB_duree.Text, TB_dureeVal.Text, estGlobale, estActive, metierChoisis);
                 ClearInputs();
                 ShowData();
             }
@@ -80,7 +80,7 @@ namespace AirAtlantique.Pages.Formation
             //Clear all input
             TB_nom.Clear();
             TB_duree.Clear();
-            DP_Date.SelectedDate = null;
+            TB_dureeVal.Clear();
             CB_estGlobale.IsChecked = false;
             LB_Metiers.Items.Clear();
             LB_ListeFormations.Items.Clear();
@@ -93,7 +93,7 @@ namespace AirAtlantique.Pages.Formation
                 Model.Formation maFormation = FormationDAO.SelectFormation(LB_ListeFormations.SelectedItem.ToString());
                 maFormation.nom = TB_nom.Text;
                 maFormation.duree = TB_duree.Text;
-                maFormation.dureeValide = DP_Date.DisplayDate;
+                maFormation.dureeValide = TB_dureeVal.Text;
                 maFormation.estActive = true;
                 bool obligatoire = false;
                 if (CB_estGlobale.IsChecked == true)
@@ -129,7 +129,7 @@ namespace AirAtlantique.Pages.Formation
                 Model.Formation maFormation = FormationDAO.SelectFormation(LB_ListeFormations.SelectedItem.ToString());
                 TB_nom.Text = maFormation.nom;
                 TB_duree.Text = maFormation.duree;
-                DP_Date.SelectedDate = maFormation.dureeValide;
+                TB_dureeVal.Text = maFormation.dureeValide;
                 if (maFormation.estGlobale == true)
                 {
                     CB_estGlobale.IsChecked = true;
