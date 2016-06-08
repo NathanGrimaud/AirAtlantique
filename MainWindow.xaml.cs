@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using AirAtlantique.Pages.Login;
+using AirAtlantique.Pages.InfoProfile;
 using AirAtlantique.Pages;
 
 namespace AirAtlantique
@@ -13,7 +14,7 @@ namespace AirAtlantique
         {
             InitializeComponent();
             Switcher.init(this.ContentArea,this.SideMenu);
-            ContentArea.Content = new Login();
+            ContentArea.Content = new Login();            
         }
     }
 }

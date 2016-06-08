@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{59B72324-74EA-4890-BC0F-EEDCB026EC64}</ProjectGuid>
+    <ProjectGuid>{C2486748-20A6-48BD-86AE-A1B5DB030F8C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AirAtlantique</RootNamespace>
@@ -57,6 +57,8 @@
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -80,6 +82,15 @@
     <Compile Include="DAO\FormationDAO.cs" />
     <Compile Include="DAO\MetierDAO.cs" />
     <Compile Include="DAO\SessionDAO.cs" />
+    <Compile Include="Migrations\201605191120259_inital.cs" />
+    <Compile Include="Migrations\201605191120259_inital.Designer.cs">
+      <DependentUpon>201605191120259_inital.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605241503522_changed login to samacountname.cs" />
+    <Compile Include="Migrations\201605241503522_changed login to samacountname.Designer.cs">
+      <DependentUpon>201605241503522_changed login to samacountname.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Demande.cs" />
     <Compile Include="Model\Employe.cs" />
     <Compile Include="Model\Formateur.cs" />
@@ -93,6 +104,15 @@
     </Compile>
     <Compile Include="Pages\Formation\AjouterFormation.xaml.cs">
       <DependentUpon>AjouterFormation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formation\DemandeFormation.xaml.cs">
+      <DependentUpon>DemandeFormation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InfoProfile\InfoFormations.xaml.cs">
+      <DependentUpon>InfoFormations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InfoProfile\InfoProfile.xaml.cs">
+      <DependentUpon>InfoProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Métier\AjouterMetier.xaml.cs">
       <DependentUpon>AjouterMetier.xaml</DependentUpon>
@@ -115,6 +135,7 @@
     <Compile Include="Pages\Login\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\AdService.cs" />
     <Compile Include="Switcher.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -133,6 +154,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Formation\AjouterFormation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formation\DemandeFormation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\InfoProfile\InfoFormations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\InfoProfile\InfoProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -179,6 +212,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201605191120259_inital.resx">
+      <DependentUpon>201605191120259_inital.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605241503522_changed login to samacountname.resx">
+      <DependentUpon>201605241503522_changed login to samacountname.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -210,7 +249,9 @@
   <ItemGroup>
     <Resource Include="Images\logo.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="TODO.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

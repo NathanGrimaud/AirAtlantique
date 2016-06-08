@@ -11,9 +11,10 @@ namespace AirAtlantique.Model
     public class Employe
     {
         [Key]
+        [Required]
         public int id { get; set; }
 
-        [StringLength(40)]
+         [StringLength(40)]
         [Required]
         public string nom { get; set; }
 
@@ -26,7 +27,7 @@ namespace AirAtlantique.Model
 
         [StringLength(20)]
         [Index(IsUnique=true)]
-        public string login { get; set; }
+        public string samAccountName { get; set; }
 
         [StringLength(450)]
         [Index(IsUnique=true)]
@@ -35,5 +36,9 @@ namespace AirAtlantique.Model
         public virtual ICollection<Metier> metier { get; set; }
 
         public virtual ICollection<Session> sessions { get; set; }
+        public override string ToString()
+        {
+            return this.prenom + " " + this.nom;
+        }
     }
 }

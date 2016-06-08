@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using AirAtlantique.Model;
+using AirAtlantique.DAO;
+using AirAtlantique.Services;
 using System.DirectoryServices;
+using System.Collections;
+using System.Text;
 
 namespace AirAtlantique.Pages.Login
 {
@@ -25,11 +18,22 @@ namespace AirAtlantique.Pages.Login
         {
             InitializeComponent();
             changePage.Click += ChangePage_Click;
+            
         }
 
         private void ChangePage_Click(object sender, RoutedEventArgs e)
-        {        
-            Switcher.Navigate(new Home.Home());
-        }      
+        {
+            var username = UsernameBox.Text;
+            var passwd = PasswordBox.Password;
+            var emp = connect(username, passwd);
+            Switcher.Navigate(new Home.Home(emp));
+        }
+        public Employe connect(string username, string pass)
+        {
+            var emp = EmployéDAO.SelectUniqueEmployé(username);
+            emp.password = pass;
+            Switcher.loadProfile(emp);
+            return emp;
+        }   
     }
 }

@@ -43,14 +43,14 @@ namespace AirAtlantique.DAO
                     nom = nom,
                     prenom = prenom,
                     password = password,
-                    login = login,
+                    samAccountName = login,
                     email = email,
                     metier = métier
                 });
                 db.SaveChanges();
             }
         }
-
+        
         public static List<Employe> ListerEmployé()
         {
             using (var db = new AirAtlantiqueContext())
@@ -63,15 +63,11 @@ namespace AirAtlantique.DAO
 
         public static Employe SelectUniqueEmployé(string nomEmploye)
         {
+            var samName = nomEmploye.Replace(' ', '.').ToLower();
             using (var db = new AirAtlantiqueContext())
             {
-                string[] nomEtprenom = nomEmploye.Split(' ');
-                string nom = nomEtprenom[1];
-                string prenom = nomEtprenom[0];
-
                 Employe employe = (from e in db.employes
-                                   where nom == e.nom
-                                   where prenom == e.prenom
+                                   where samName == e.samAccountName
                                    select e).First();
                 return employe;
             }
@@ -86,7 +82,7 @@ namespace AirAtlantique.DAO
                 {
                     original.nom = employeSelectionne.nom;
                     original.prenom = employeSelectionne.prenom;
-                    original.login = employeSelectionne.login;
+                    original.samAccountName = employeSelectionne.samAccountName;
                     original.password = employeSelectionne.password;
                     original.email = employeSelectionne.email;
                     //original.metier = employeSelectionne.metier;

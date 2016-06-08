@@ -69,7 +69,7 @@ namespace AirAtlantique.Pages.Session
 
         private void annuler_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Navigate(new Home.Home());
+            //Switcher.Navigate(new Home.Home(this.em));
         }
 
         private void ajouter_Click(object sender, RoutedEventArgs e)
@@ -112,7 +112,7 @@ namespace AirAtlantique.Pages.Session
 
         private void retour_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Navigate(new Home.Home());
+            //Switcher.Navigate(new Home.Home());
         }
 
         private void ShowSession ()

@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="AirAtlantique.Pages.InfoProfile.InfoProfile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AirAtlantique.Pages.InfoProfile"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <TextBlock x:Name="Username" HorizontalAlignment="Left" Height="23" Margin="20,30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>
+        <TextBlock  HorizontalAlignment="Left" Height="23" Margin="30,60,0,0"  VerticalAlignment="Top" Width="60"  Text="Prenom : " ></TextBlock>
+        <TextBlock x:Name="Prenom" HorizontalAlignment="Left" Height="23" Margin="80,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+        <TextBlock  HorizontalAlignment="Left" Height="23" Margin="30,90,0,0"  VerticalAlignment="Top" Width="60"  Text="Nom : " ></TextBlock>
+        <TextBlock x:Name="Nom" HorizontalAlignment="Left" Height="23" Margin="80,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+        <TextBlock  HorizontalAlignment="Left" Height="23" Margin="30,120,0,0"  VerticalAlignment="Top" Width="60"  Text="Poste : " ></TextBlock>
+        <TextBlock x:Name="Poste" HorizontalAlignment="Left" Height="23" Margin="80,120,0,0"  Text="" VerticalAlignment="Top" Width="120"/>
+
+        <Button x:Name="Deconnexion" Content="Déconnexion" Background="red" Height="34" Margin="30,201,0,0" RenderTransformOrigin="0.484,0.528" VerticalAlignment="Top" HorizontalAlignment="Left" Width="116"/>
+        <Button x:Name="Sessions" Content="Mes Sessions" HorizontalAlignment="Left" Margin="30,164,0,0" VerticalAlignment="Top" Width="116"/>
+    </Grid>
+</UserControl>

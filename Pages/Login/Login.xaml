@@ -24,7 +24,8 @@
             </Grid.ColumnDefinitions>
 
             <Button x:Name="changePage" Content="Login" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Margin="32,8,81,10" Grid.ColumnSpan="2"/>
-            <TextBlock x:Name="error" Margin="0,23,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
-        </Grid>
+        <TextBox x:Name="UsernameBox" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Center" Height="23" Margin="0,76,60,0" TextWrapping="Wrap" Text="anatole.talent" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox x:Name="PasswordBox"  Grid.ColumnSpan="2" Grid.Column="1" Margin="0,16,50,10" Grid.Row="1" HorizontalAlignment="Center" Width="120"/>
+    </Grid>
 
 </UserControl>

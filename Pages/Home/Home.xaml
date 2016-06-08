@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:AirAtlantique.Pages.Home"
              >
     <Grid Height="500" Width="800">
-        <Button Margin="242,221,0,227" x:Name="ajoutFormation" Content="Formation" Click="ajoutFormation_Click" VerticalAlignment="Center" Height="52" FontSize="18.667" HorizontalAlignment="Left" Width="150" />
+        <Button Margin="242,221,0,227" x:Name="ajoutFormation" IsEnabled="False" Content="Formation" Click="ajoutFormation_Click" VerticalAlignment="Center" Height="52" FontSize="18.667" HorizontalAlignment="Left" Width="150" />
         <Button Margin="41,221,0,228" x:Name="employés" Content="Employés" Click="employes_Click" VerticalAlignment="Center" Height="51" FontSize="18.667" HorizontalAlignment="Left" Width="148" />
         <Button Margin="438,221,0,228" x:Name="ajoutSession" Content="Session"  VerticalAlignment="Center" Height="51" FontSize="18.667" HorizontalAlignment="Left" Width="150" Click="ajoutSession_Click" />
         <Button Margin="624,221,0,228" x:Name="métiers" Content="Métiers" Click="metiers_Click" VerticalAlignment="Center" Height="51" FontSize="18.667" HorizontalAlignment="Left" Width="150" />

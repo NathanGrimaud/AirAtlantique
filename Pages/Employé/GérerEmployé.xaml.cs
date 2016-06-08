@@ -87,9 +87,16 @@ namespace AirAtlantique.Pages.Employé
 
         public void ajoutMetier_Click(object sender, RoutedEventArgs e)
         {
-            LB_metiers_Employe.Items.Add(LB_MétiersDispo.SelectedItem.ToString());
-            LB_MétiersDispo.Items.Clear();
-
+            using (var db = new AirAtlantiqueContext())
+            {
+                var metierNom = LB_MétiersDispo.SelectedItem.ToString();
+                LB_metiers_Employe.Items.Add(metierNom);
+                var metier = DAO.MetierDAO.SelectMetier(metierNom);
+                var emp = EmployéDAO.SelectUniqueEmployé(LB_liste_employé.SelectedItem.ToString());
+                //if (!emp.metier.Contains(metier))
+                    emp.metier.Add(metier);
+                LB_MétiersDispo.Items.Clear();
+            }
         }
 
         private void annulerMaj_Click(object sender, RoutedEventArgs e)
@@ -104,7 +111,7 @@ namespace AirAtlantique.Pages.Employé
             EmployeSelectionne.nom = TB_Nom.Text;
             EmployeSelectionne.prenom = TB_Prénom.Text;
             EmployeSelectionne.email = TB_Prénom.Text.ToLower() + "." + TB_Nom.Text.ToLower() + "@airatlantique.com";
-            EmployeSelectionne.login = TB_Prénom.Text.ToLower() + "." + TB_Nom.Text.ToLower();
+            EmployeSelectionne.samAccountName = TB_Prénom.Text.ToLower() + "." + TB_Nom.Text.ToLower();
             EmployeSelectionne.password = TB_Prénom.Text.ToLower() + "." + TB_Nom.Text.ToLower();
 
 
@@ -125,7 +132,8 @@ namespace AirAtlantique.Pages.Employé
 
             if (LB_liste_employé.HasItems)
             {
-                Model.Employe clicEmploye = EmployéDAO.SelectUniqueEmployé(LB_liste_employé.SelectedItem.ToString());
+                var fullName = LB_liste_employé.SelectedItem.ToString();
+                Model.Employe clicEmploye = EmployéDAO.SelectUniqueEmployé(fullName);
                 TB_Nom.Text = clicEmploye.nom;
                 TB_Prénom.Text = clicEmploye.prenom;
 
@@ -159,7 +167,9 @@ namespace AirAtlantique.Pages.Employé
                 session.Visibility = Visibility.Visible;
                 editerEmployé.Visibility = Visibility.Visible;
                 supprimerEmployé.Visibility = Visibility.Visible;
-                List<Model.Session> sessionsEmploye = SessionDAO.ListerSession(EmployéDAO.SelectUniqueEmployé(LB_liste_employé.SelectedItem.ToString()), LB_Formations.SelectedItem.ToString());
+                // receives Prenom Nom -> nedd prenom.nom
+                var fullName = LB_liste_employé.SelectedItem.ToString();
+                List<Model.Session> sessionsEmploye = SessionDAO.ListerSession(EmployéDAO.SelectUniqueEmployé(fullName), LB_Formations.SelectedItem.ToString());
                 foreach (var item in sessionsEmploye)
                 {
                     LB_Sessions.Items.Add(item.nom);
@@ -173,6 +183,7 @@ namespace AirAtlantique.Pages.Employé
         {
             //Une fois un métier ajouté, on recharge la listbox des métiers disponibles
             SelectMetierDispo();
+            
         }
     }
 }

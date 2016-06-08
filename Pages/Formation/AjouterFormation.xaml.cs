@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AirAtlantique.Model;
 
 namespace AirAtlantique.Pages.Formation
 {
@@ -23,11 +24,22 @@ namespace AirAtlantique.Pages.Formation
     /// </summary>
     public partial class ajouterFormation : UserControl
     {
+        private Employe employe;
+
         public ajouterFormation() : base()
         {
             InitializeComponent();
             ((MainWindow)System.Windows.Application.Current.MainWindow).page_name.Text = "Ajouter une formation";
             ShowData();
+
+        }
+
+        public ajouterFormation(Employe employe) : base()
+        {
+            InitializeComponent();
+            ((MainWindow)System.Windows.Application.Current.MainWindow).page_name.Text = "Ajouter une formation";
+            ShowData();
+            this.employe = employe;
         }
 
         private void ShowData()
@@ -70,7 +82,7 @@ namespace AirAtlantique.Pages.Formation
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Navigate(new Home.Home());
+           // Switcher.Navigate(new Home.Home());
         }
 
         public void LB_ListeFormations_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -130,7 +142,7 @@ namespace AirAtlantique.Pages.Formation
 
         private void Retour_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Navigate(new Home.Home());
+            //Switcher.Navigate(new Home.Home());
         }
     }
 }

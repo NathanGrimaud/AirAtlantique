@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
-
+using AirAtlantique.Model;
+using AirAtlantique.Pages.InfoProfile;
 namespace AirAtlantique
 {
     /// <summary> 
@@ -14,7 +15,7 @@ namespace AirAtlantique
     public static class Switcher
      {
          static ContentControl templater;
-         static ContentControl menu;
+         static ContentControl profileView;
 
         /// <summary>
         ///  a static method to initialise the mainWindow content control
@@ -27,10 +28,10 @@ namespace AirAtlantique
         /// the base menu 
         /// </param>
 
-        public static void init(ContentControl templateWrapper, ContentControl menuWrapper)
-         {
-             templater = templateWrapper;
-             menu = menuWrapper;
+        public static void init(ContentControl templateWrapper, ContentControl profileWrapper)
+        {
+             profileView = profileWrapper;
+             templater = templateWrapper;             
         }
 
         /// <summary>
@@ -46,12 +47,12 @@ namespace AirAtlantique
             else
                 throw new Exception("you need to give the switcher all the ContentControl that will be filled");
          }
-        public static void changeMenu(UserControl menuWrapper)
+        public static void loadProfile(Employe profile)
         {
-            if (menu != null)
-                menu.Content = menuWrapper;             
-            else
-                throw new Exception("you need to give the switcher all the ContentControl that will be filled");
+            var view = new InfoProfile();
+            view.setEmployee(profile);
+            profileView.Content = view;
         }
+
     }
 }

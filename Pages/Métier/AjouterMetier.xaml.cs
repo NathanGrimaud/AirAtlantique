@@ -59,7 +59,7 @@ namespace AirAtlantique.Pages.Métier
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Navigate(new Home.Home());
+            //Switcher.Navigate(new Home.Home());
         }
 
         private void supprimer_Click(object sender, RoutedEventArgs e)
