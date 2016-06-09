@@ -23,6 +23,8 @@
                 <ColumnDefinition Width="2*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
+        
+        
             <Button x:Name="changePage" Content="Login" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Margin="32,8,81,10" Grid.ColumnSpan="2"/>
             <TextBlock x:Name="error" Margin="0,23,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
         </Grid>

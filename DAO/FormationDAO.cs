@@ -115,8 +115,6 @@ namespace AirAtlantique.DAO
                 var original = db.formations.Find(formation.id);
                 if (original != null)
                 {
-                    if (original.nom != formation.nom)
-                    {
                         original.nom = formation.nom;
                         original.duree = formation.duree;
                         original.dureeValide = formation.dureeValide;
@@ -124,7 +122,6 @@ namespace AirAtlantique.DAO
                         original.estActive = formation.estActive;
 
                         db.SaveChanges();
-                    }
                 }
             }
         }

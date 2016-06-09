@@ -27,6 +27,9 @@ namespace AirAtlantique.Pages.Login
             changePage.Click += ChangePage_Click;
         }
 
+
+
+
         private void ChangePage_Click(object sender, RoutedEventArgs e)
         {        
             Switcher.Navigate(new Home.Home());

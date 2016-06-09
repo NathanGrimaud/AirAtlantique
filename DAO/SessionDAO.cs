@@ -76,29 +76,43 @@ namespace AirAtlantique.DAO
             }
         }
 
-        //public static void EditerSession(Session session, string nom, string prenom, string mail, Metier metier)
-        //{
-        //    using (var db = new AirAtlantiqueContext())
-        //    {
-        //        var employeToChange = db.employes.Find(employes.id);
-        //        Metier metierToChange = db.metiers.Find(metier.ID);
-        //        if (employeToChange != null)
-        //        {
-        //            employeToChange.Nom = nom;
-        //            employeToChange.Prenom = prenom;
-        //            employeToChange.mail = mail;
-        //            employeToChange.Metier = metierToChange;
-        //            db.SaveChanges();
-        //        }
-        //    }
-        //}
-
         public static void SupprimerSession(Session sessionDelete)
         {
             using (var db = new AirAtlantiqueContext())
             {
                 db.sessions.Remove(db.sessions.Find(sessionDelete.id));
                 db.SaveChanges();
+            }
+        }
+
+        public static void EditerSession(Session session, string formationConcernee, List<string> employeConcerne)
+        {
+            using (var db = new AirAtlantiqueContext())
+            {
+                List<Employe> employé = new List<Employe>();
+                foreach (var nomEmployé in employeConcerne)
+                {
+                    string[] nomPrenom = nomEmployé.Split(' ');
+                    string prenom = nomPrenom[0];
+                    string nom = nomPrenom[1];
+
+                    Employe employés = (from e in db.employes
+                                        where e.nom == nom
+                                        where e.prenom == prenom
+                                        select e).First();
+                    employé.Add(employés);
+                }
+
+                var original = db.sessions.Find(session.id);
+                if (original != null)
+                {
+                    original.nom = session.nom;
+                    original.dateDebut = session.dateDebut;
+                    original.dateFin = session.dateFin;
+                    original.formation = (from f in db.formations where f.nom == formationConcernee select f).First();
+                    original.employes = employé;
+                    db.SaveChanges();
+                }
             }
         }
 

@@ -81,33 +81,25 @@ namespace AirAtlantique.Pages.Session
                 employé.Add(item.ToString());
             }
 
-            if (employé.Count == 0)
+            if (LB_employés.SelectedItem == null)
             {
                 TB_Alert.Text = "Veuillez renseigner tout les champs";
                 TB_Alert.Visibility = Visibility.Visible;
             }
             else
             {
-                try
-                {
-                    SessionDAO.AjouterSession(TB_NomSession.Text, DP_date_debut.SelectedDate.Value, DP_date_fin.SelectedDate.Value, CB_listeFormations.Text, employé);
 
-                    TB_Alert.Visibility = Visibility.Hidden;
-                    TB_NomSession.Clear();
-                    DP_date_debut.SelectedDate = null;
-                    DP_date_fin.SelectedDate = null;
-                    CB_listeFormations.SelectedIndex = -1;
-                    LB_employés.Items.Clear();
-                }
-                catch
-                {
-                    TB_Alert.Text = "Veuillez renseigner tous les champs";
-                    TB_Alert.Visibility = Visibility.Visible;
-                }
+                SessionDAO.AjouterSession(TB_NomSession.Text, DP_date_debut.SelectedDate.Value, DP_date_fin.SelectedDate.Value, CB_listeFormations.Text, employé);
+
+                TB_Alert.Visibility = Visibility.Hidden;
+                TB_NomSession.Clear();
+                DP_date_debut.SelectedDate = null;
+                DP_date_fin.SelectedDate = null;
+                LB_employés.Items.Clear();
+
+                RefreshData();
+                ShowSession();
             }
-
-            RefreshData();
-            ShowSession();
         }
 
         private void retour_Click(object sender, RoutedEventArgs e)
@@ -115,7 +107,7 @@ namespace AirAtlantique.Pages.Session
             Switcher.Navigate(new Home.Home());
         }
 
-        private void ShowSession ()
+        private void ShowSession()
         {
             List<Model.Session> sessions = SessionDAO.ListerAllSession();
             foreach (var item in sessions)
@@ -146,21 +138,31 @@ namespace AirAtlantique.Pages.Session
         }
 
 
-        private void BTDelete_Click(object sender, RoutedEventArgs e)
-        {
-            Model.Session sessionClick = SessionDAO.SelectUniqueSession(LB_session.SelectedItem.ToString());
-            SessionDAO.SupprimerSession(sessionClick);
-            BT_MAJ.Visibility = Visibility.Hidden;
-            BT_SUPPR.Visibility = Visibility.Hidden;
-            BT_ajouter.Visibility = Visibility.Visible;
-            BT_annuler.Visibility = Visibility.Hidden;
-            RefreshData();
-        }
-
 
         private void BT_MAJ_Click(object sender, RoutedEventArgs e)
         {
+            Model.Session maSession = SessionDAO.SelectSession(LB_session.SelectedItem.ToString());
+            string formation = CB_listeFormations.Text;
+
+            List<string> employé = new List<string>();
+            foreach (var item in LB_employés.SelectedItems)
+            {
+                employé.Add(item.ToString());
+            }
+
+
+            maSession.nom = TB_NomSession.Text;
+            maSession.dateDebut = DP_date_debut.DisplayDate;
+            maSession.dateDebut = DP_date_fin.DisplayDate;
             
+            SessionDAO.EditerSession(maSession, formation, employé);
+            TB_NomSession.Clear();
+            DP_date_debut.SelectedDate = null;
+            DP_date_fin.SelectedDate = null;
+            LB_employés.Items.Clear();
+
+            RefreshData();
+            ShowSession();
         }
 
         private void BT_SUPPR_Click(object sender, RoutedEventArgs e)
@@ -172,6 +174,7 @@ namespace AirAtlantique.Pages.Session
             BT_ajouter.Visibility = Visibility.Visible;
             BT_annuler.Visibility = Visibility.Hidden;
             RefreshData();
+            ShowSession();
         }
     }
 }

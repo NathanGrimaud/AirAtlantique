@@ -123,6 +123,8 @@ namespace AirAtlantique.Pages.Formation
 
         private void LB_ListeFormations_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Cancel.Visibility = Visibility.Hidden;
+            Add.Visibility = Visibility.Hidden;
             if (LB_ListeFormations.HasItems)
             {
                 editFormation.Visibility = Visibility.Visible;
